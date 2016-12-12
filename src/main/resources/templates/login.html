@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+
+<!-- Header -->
+<div id="header">
+	<div class="shell">
+		<!-- Logo + Top Nav -->
+		<div id="top">
+			<h1><a href="#">Stash</a></h1>
+			<div id="top-navigation">
+				Welcome <a href="#"><strong th:text="${username}"></strong></a>
+				<span>|</span>
+				<a href="/signup">Sign Up</a>
+			</div>
+		</div>
+
+		<!-- End Logo + Top Nav -->
+		
+</div>
+</div>
+<!-- End Header -->
+
+	<!-- Container -->
+<div id="container">
+	<div class="shell">
+		
+		<!-- Small Nav -->
+		<div class="small-nav">
+			<a href="#">Login</a>
+			<span>&gt;</span>
+			Login
+		</div>
+		<!-- End Small Nav -->
+
+		<br />
+		
+		
+		<!-- Main -->
+		<div id="main">
+			<div class="cl">&nbsp;</div>
+			
+			<!-- Content -->
+			<div id="content">
+
+				<!-- Box -->
+				<div class="box">
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2>Login</h2>
+					</div>
+					<!-- End Box Head -->
+					
+					<form action="" method="post">
+						
+						<!-- Form -->
+						<div class="form">
+								<p>
+									<label>Username</label>
+									<input type="text" class="field size1" name="username" th:value="${username}"></input>
+								</p>	
+								<p class="inline-field">
+									<label>Password</label>
+									<input type="password" class="field size1" name="password"></input>
+								</p>							
+						</div>
+						<!-- End Form -->
+						
+						<!-- Form Buttons -->
+						<div class="buttons">
+							<input type="submit" class="button" value="submit" />
+						</div>
+						<!-- End Form Buttons -->
+					</form>
+					 <p>Don't have an account? <a href="/signup">Create one!</a></p>
+				</div>
+				<!-- End Box -->
+
+			</div>
+
+
+	
+			</div>
+		<!-- Main -->
+	</div>
+</div>
+<br style="clear:both" /> <!-- So dirty! -->
+<!-- End Container -->
+
+	<div th:replace="template :: footer"></div>
+
+
+
+</body>
+</html>

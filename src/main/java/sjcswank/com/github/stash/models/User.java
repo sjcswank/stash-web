@@ -1,5 +1,7 @@
 package sjcswank.com.github.stash.models;
 
+import java.util.ArrayList;
+
 //modified code from https://github.com/LaunchCodeEducation/blogz-spring/blob/master/src/main/java/org/launchcode/blogz/models/User.java
 
 import java.util.regex.Matcher;
@@ -7,14 +9,11 @@ import java.util.regex.Pattern;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import antlr.collections.List;
 
 @Entity
 @Table(name = "user")
@@ -31,8 +30,9 @@ public class User extends AbstractEntity {
 //	@OneToMany(mappedBy= "user")
 //	private List locations;
 //	//end added code
-	
-	private List items;
+
+	@OneToMany(mappedBy = "user", targetEntity=Item.class)
+	private ArrayList<Item> items;
 	
 	public User() {}
 	
@@ -92,12 +92,12 @@ public class User extends AbstractEntity {
 	}
 	//End code from Launchcode
 	
-	public void setItems(List items){
+	public void setItems(ArrayList items){
 		this.items = items;
 	}
 	
-	@OneToMany(mappedBy = "user", targetEntity=Item.class)
-	public List getItems(){
+
+	public ArrayList getItems(){
 		return items;
 	}
 	

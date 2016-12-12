@@ -4,9 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
@@ -15,8 +14,8 @@ abstract class AbstractEntity {
   int uid;
 //  String name;
 //  int quantity;
-//  Date created;
-//  Date modified;
+  Date created;
+  Date modified;
 //  User owner;
 //  
 //  //create new entity
@@ -26,11 +25,33 @@ abstract class AbstractEntity {
   
   //code from https://github.com/LaunchCodeEducation/blogz-spring/blob/master/src/main/java/org/launchcode/blogz/models/AbstractEntity.java
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.TABLE)
   @NotNull
   @Column(name = "uid", unique = true)
   public int getUid() {
 	return this.uid;
+  }
+  
+  public void setUid(int uid){
+	  this.uid = uid;
+  }
+  
+  @Column(name= "modified")
+  public Date getModified(){
+	  return modified;
+  }
+  
+  public void setModified(Date date){
+	  modified = date;
+  }
+  
+  @Column(name = "created")
+  public Date getCreated(){
+	  return created;
+  }
+  
+  public void setCreated(Date created){
+	  this.created = created;
   }
   //end Lanuchcode code
   

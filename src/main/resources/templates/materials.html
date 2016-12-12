@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+
+<!-- Header -->
+<div id="header">
+	<div class="shell">
+		<!-- Logo + Top Nav -->
+		<div id="top">
+			<h1><a href="#">Stash</a></h1>
+			<div id="top-navigation">
+				Welcome <a href="#"><strong th:text="${username}"></strong></a>
+				<span>|</span>
+				<a href="#">Profile Settings</a>
+				<span>|</span>
+				<a href="/logout">Log out</a>
+			</div>
+		</div>
+
+		<!-- End Logo + Top Nav -->
+		<!-- Main Nav -->
+		<div id="navigation">
+			<ul>
+			    <li><a href="/dashboard"><span>Dashboard</span></a></li>
+			    <li><a href="/locations"><span>Locations</span></a></li>
+			    <li><a href="/materials" class="active"><span>Materials</span></a></li>
+			    <li><a href="/projects"><span>Projects</span></a></li>
+			    <li><a href="/reports"><span>Reports</span></a></li>
+			    <li><a href="/usermanagement"><span>User Management</span></a></li>
+			</ul>
+		</div>
+		<!-- End Main Nav -->
+</div>
+</div>
+<!-- End Header -->
+
+
+
+<!-- Container -->
+<div id="container">
+	<div class="shell">
+		
+		<!-- Small Nav -->
+		<div class="small-nav">
+			<a href="/materials">Materials</a>
+			<span>&gt;</span>
+			All Materials
+		</div>
+		<!-- End Small Nav -->
+
+		<br />
+		
+		
+		<!-- Main -->
+		<div id="main">
+			<div class="cl">&nbsp;</div>
+			
+			<!-- Content -->
+			<div id="content">
+				
+				<!-- Box -->
+				<div class="box">
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2 class="left">All Materials</h2>
+						<div class="right">
+							<label>search materials</label>
+							<input type="text" class="field small-field" />
+							<input type="submit" class="button" value="search" />
+						</div>
+					</div>
+
+					<!-- End Box Head -->	
+
+					<!-- Table -->
+					<div class="table">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th width="13"><input type="checkbox" class="checkbox" /></th>
+								<th>Name</th>
+								<th>Qty</th>
+								<th>Added by</th>
+								<th width="110" class="ac">Edit</th>
+							</tr>
+							
+							<tr th:each="material : ${materials}">
+								<td><input type="checkbox" class="checkbox" /></td>
+								<td><h3><a th:href="'/stash/' + ${material.owner.username} + '/' + ${material.uid}" th:text="${material.name}"></a></h3></td>
+								<td th:text="${material.qty}"></td>
+								<td><a href="#">User</a></td>
+								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+		
+			</div>
+
+	<div th:replace="template :: sidebar"></div>
+	
+			</div>
+		<!-- Main -->
+	</div>
+</div>
+<br style="clear:both" /> <!-- So dirty! -->
+<!-- End Container -->
+
+	<div th:replace="template :: footer"></div>
+
+
+	</body>
+</html>
