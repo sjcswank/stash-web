@@ -1,7 +1,6 @@
 package sjcswank.com.github.stash.models.dao;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -21,11 +20,11 @@ public interface LocationDao extends CrudRepository<Location, Integer>{
     
 	Location findByName(String name);
     
-    ArrayList<Location> findAll();
+    Set<Location> findAll();
     
-    ArrayList<Location> findByOwner(User owner);
+    Set<Location> findByOwner(User owner);
     
-    @Query(value = "SELECT * FROM location WHERE owner_id = :ownerId LIMIT 10", nativeQuery = true)
-    List<Location> findByModified10(@Param("ownerId") int ownerId);
+    @Query(value = "SELECT * FROM location WHERE owner_uid = :ownerId ORDER BY modified DESC LIMIT 10", nativeQuery = true)
+    Set<Location> findByModified10(@Param("ownerId") int ownerId);
 
 }

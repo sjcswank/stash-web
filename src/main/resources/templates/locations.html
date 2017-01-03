@@ -23,12 +23,12 @@
 		<!-- Main Nav -->
 		<div id="navigation">
 			<ul>
-			    <li><a href="/dashboard"><span>Dashboard</span></a></li>
-			    <li><a href="/locations" class="active"><span>Locations</span></a></li>
-			    <li><a href="/materials"><span>Materials</span></a></li>
-			    <li><a href="/projects"><span>Projects</span></a></li>
-			    <li><a href="/reports"><span>Reports</span></a></li>
-			    <li><a href="/usermanagement"><span>User Management</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/dashboard/'" ><span>Dashboard</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/locations/'" class="active"><span>Locations</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/materials/'"><span>Materials</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/projects/'"><span>Projects</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/reports/'"><span>Reports</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/usermanagement/'"><span>User Management</span></a></li>
 			</ul>
 		</div>
 		<!-- End Main Nav -->
@@ -42,7 +42,7 @@
 		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<a href="/locations">Locations</a>
+			<a th:href="'/' + ${username} + '/locations'">Locations</a>
 			<span>&gt;</span>
 			All Locations
 		</div>
@@ -64,9 +64,12 @@
 					<div class="box-head">
 						<h2 class="left">Recent Locations</h2>
 						<div class="right">
-							<label>search locations</label>
-							<input type="text" class="field small-field" />
-							<input type="submit" class="button" value="search" />
+							<label>sort locations&nbsp;</label>
+							<select id="sort" name="sort" class="field small-field">
+								<option value="a_z">Alphabetically (ascending)</option>
+								<option value="z_a">Alphabetically (descending)</option>
+								<option value="recent">Most Recent</option>
+							</select>
 						</div>
 					</div>
 					<!-- End Box Head -->	
@@ -77,16 +80,16 @@
 								<th width="13"><input type="checkbox" class="checkbox" /></th>
 								<th>Name</th>
 								<th>Full</th>
-								<th>Added by</th>
+								<th>Modified</th>
 								<th width="110" class="ac">Edit</th>
 							</tr>
 							
 							<tr th:each="location : ${locations}">
 								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a th:href="'/stash/' + ${location.owner.username} + '/' + ${location.uid}" th:text="${location.name}"></a></h3></td>
+								<td><h3><a th:href="'/' + ${username} + '/locations/' + ${location.uid}" th:text="${location.name}"></a></h3></td>
 								<td>IsFull</td>
 								<!-- <td th:text="${location.getIsFullOutput()}"></td> -->
-								<td><a href="#">User</a></td>
+								<td th:test="${#dates.format(location.modified, 'yyyy-MM-dd')}"></td>
 								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
 							</tr>
 						</table>
@@ -95,7 +98,39 @@
 						
 			</div>
 
-	<div th:replace="template :: sidebar"></div>
+		<!-- Sidebar -->
+			<div id="sidebar" th:fragment="sidebar">
+				
+				<!-- Box -->
+				<div class="box">
+					
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2>Management</h2>
+					</div>
+					<!-- End Box Head-->
+					
+					<div class="box-content">
+						<a href="/${username}/locations/newlocation" class="add-button"><span>Add new Location</span></a>
+						<div class="cl">&nbsp;</div>
+						
+						<p class="select-all"><input type="checkbox" class="checkbox" /><label>select all</label></p>
+						<p><a href="#">Delete Selected</a></p>
+						
+						<!-- Search -->
+						<div class="sort">
+							<label>Search All Locations</label>
+							<input type="text" class="field" />
+							<br />
+							<input type="submit" class="button" value="search" />
+						</div>
+						<!-- End Search -->
+						
+					</div>
+				</div>
+				<!-- End Box -->
+			</div>
+			<!-- End Sidebar -->
 	
 			</div>
 		<!-- Main -->

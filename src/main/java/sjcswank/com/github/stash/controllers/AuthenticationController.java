@@ -3,13 +3,17 @@ package sjcswank.com.github.stash.controllers;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import sjcswank.com.github.stash.models.User;
-import sjcswank.com.github.stash.models.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import sjcswank.com.github.stash.models.Location;
+import sjcswank.com.github.stash.models.User;
+import sjcswank.com.github.stash.models.dao.LocationDao;
+import sjcswank.com.github.stash.models.dao.UserDao;
 
 
 @Controller
@@ -18,13 +22,16 @@ public class AuthenticationController extends AbstractController {
 	@Autowired
 	private UserDao UserDao;
 	
+	@Autowired 
+	private LocationDao LocationDao;
+	
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String signupForm() {
 		return "signup";
 	}
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String signup(HttpServletRequest request, Model model) {
+	public String signup(HttpServletRequest request, Model model, RedirectAttributes redirectAttrs) {
 		User user = null;
 		
 		//get parameters
@@ -61,8 +68,13 @@ public class AuthenticationController extends AbstractController {
 			HttpSession thisSession = request.getSession();
 			this.setUserInSession(thisSession, user);
 		}
+		Location location = new Location();
+		location.setOwner(user);
+		location.setName("default");
+		LocationDao.save(location);
 		
-		return "redirect:/dashboard"; // + user.getUsername();
+		redirectAttrs.addAttribute("username", user.getUsername());
+		return "redirect:/{username}/dashboard";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -71,7 +83,7 @@ public class AuthenticationController extends AbstractController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(HttpServletRequest request, Model model) {
+	public String login(HttpServletRequest request, Model model, RedirectAttributes redirectAttrs) {
 		
 
 		
@@ -99,7 +111,9 @@ public class AuthenticationController extends AbstractController {
 		HttpSession thisSession = request.getSession();
 		this.setUserInSession(thisSession, user);
 		
-		return "redirect:/dashboard"; //+ user.getUsername();
+		redirectAttrs.addAttribute("username", username);
+		
+		return "redirect:/{username}/dashboard";
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

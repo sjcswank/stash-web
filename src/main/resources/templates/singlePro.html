@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="template :: dochead">
@@ -35,8 +36,9 @@
 </div>
 </div>
 <!-- End Header -->
-
-<!-- Container -->
+	
+	
+	<!-- Container -->
 <div id="container">
 	<div class="shell">
 		
@@ -44,7 +46,7 @@
 		<div class="small-nav">
 			<a th:href="'/' + ${username} + '/projects'">Projects</a>
 			<span>&gt;</span>
-			All Projects
+			<strong><span th:text="${project.name}"></span></strong>
 		</div>
 		<!-- End Small Nav -->
 
@@ -63,15 +65,8 @@
 				
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">Recent Projects</h2>
-						<div class="right">
-							<label>sort projects&nbsp;</label>
-							<select id="sort" name="sort" class="field small-field">
-								<option value="a_z">Alphabetically (ascending)</option>
-								<option value="z_a">Alphabetically (descending)</option>
-								<option value="recent">Most Recent</option>
-							</select>
-						</div>
+						<h2 class="left" th:text="${project.name}"></h2>
+
 					</div>
 				
 					<!-- End Box Head -->	
@@ -79,29 +74,64 @@
 					<div class="table">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								<th width="13"><input type="checkbox" class="checkbox" /></th>
-								<th>Name</th>
+								<th>Description</th>
+								<th>Quantity</th>
 								<th>Active</th>
-								<th>Modified</th>
+								<!-- <th>Currently Available</th> -->
+								<th>Location</th>
+								
 								<th width="110" class="ac">Edit</th>
 							</tr>
 							
-							<tr th:each="project : ${projects}">
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a th:href="'/' + ${username} + '/projects/' + ${project.uid}" th:text="${project.name}"></a></h3></td>
+							<tr>
+								<td><h3 th:text="${project.name}"></h3></td>
+								<!-- <td th:text="${project.stocked}"></td> 
+								<td th:text="${project.getIsActiveOutput()}"></td>-->
+								<td>0</td>
 								<td>IsActive</td>
-								<!-- <td th:text="${project.getIsActiveOutput()}"> -->
-								<td th:test="${#dates.format(project.modified, 'yyyy-MM-dd')}"></td>
+								<!-- <td th:text="${project.available}"></td> -->
+								<td><h3><a th:href="'/' + ${username} + '/locations/' + ${project.location.uid}" th:text="${project.location.name}"></a></h3></td>
 								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
 							</tr>
 						</table>
 					</div>
 					</div>
 					
+					<!-- Box -->
+				<div class="box">				
+				
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2 class="left">Projects</h2>
+
+					</div>
+				
+					<!-- End Box Head -->	
+					
+					<div class="table">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>Name</th>
+								<th>Quantity Needed</th>
+								<!-- <th>Active</th> -->
+								<th width="110" class="ac">Edit</th>
+							</tr>
+							
+							<tr th:each="pm : ${projectMaterials}" th:unless="${pm == null}">
+								<td><a th:href="'/' + ${username} + '/materials/' + ${pm.getMaterial().getUid()}"><h3 th:text="${pm.getMaterial().getName()}"></h3></a></td>
+								<td th:text="${pm.getQty()}"></td>
+								<!-- <td th:text="${p.getProject.getIsActiveOutput()}"></td> -->
+								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+							</tr>
+						</table>
+					</div>
+					</div>
+					
+					
 			</div>
 
-		<!-- Sidebar -->
-			<div id="sidebar" th:fragment="sidebar">
+<!-- Sidebar -->
+			<div id="sidebar">
 				
 				<!-- Box -->
 				<div class="box">
@@ -113,20 +143,25 @@
 					<!-- End Box Head-->
 					
 					<div class="box-content">
-						<a href="/${username}/newproject" class="add-button"><span>Add new Project</span></a>
+						<a href="/${username}/newmaterial" class="add-button"><span>Create new Material</span></a>
+						<div class="cl">&nbsp;</div>
+						<br />
+						<a th:href="'/' + ${username} + '/projects/' + ${project.uid} + '/addmaterials'" class="add-button"><span>Add an Existing Material</span></a>
 						<div class="cl">&nbsp;</div>
 						
 						<p class="select-all"><input type="checkbox" class="checkbox" /><label>select all</label></p>
 						<p><a href="#">Delete Selected</a></p>
 						
-						<!-- Search -->
+						<!-- Sort -->
 						<div class="sort">
-							<label>Search All Projects</label>
-							<input type="text" class="field" />
-							<br />
-							<input type="submit" class="button" value="search" />
+							<label>Sort by</label>
+							<select class="field" name="sort" id="sort">
+								<option value="name">Name</option>
+								<option value="qty">Quantity Used</option>
+								<option value="modified">Last Modified</option>
+							</select>
 						</div>
-						<!-- End Search -->
+						<!-- End Sort -->
 						
 					</div>
 				</div>

@@ -1,10 +1,12 @@
 package sjcswank.com.github.stash.models;
 
+import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -21,15 +23,16 @@ abstract public class Item extends AbstractEntity {
 	
 	public void setName(String name){
 		this.name = name;
+		this.setModified(new Date());
 	}
 	
-	@ManyToOne
-	@JoinColumn(name="owner_id", nullable=false)
+	@ManyToOne(cascade=CascadeType.ALL)
 	public User getOwner(){
 		return owner;
 	}
 	
 	public void setOwner(User owner){
 		this.owner = owner;
+		this.setModified(new Date());
 	}
 }

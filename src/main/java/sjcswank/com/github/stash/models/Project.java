@@ -1,17 +1,33 @@
 package sjcswank.com.github.stash.models;
 
-import javax.persistence.Column;
+import java.util.Date;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Project extends Storable {
 	
 
+	private Set<ProjectMaterial> projectMaterials;
 //	boolean isActive = false;
 //	int canMake = 0;
 
 	
 	public Project(){}
+	
+	public void setProjectMaterials(Set<ProjectMaterial> projectMaterials){
+		this.projectMaterials = projectMaterials;
+		this.setModified(new Date());
+	}
+	
+	@OneToMany(mappedBy = "project", targetEntity=ProjectMaterial.class)
+	public Set<ProjectMaterial> getProjectMaterials(){
+		return projectMaterials;
+	}
+	
+
 	
 //	@Column(name="isActive")
 //	public boolean getIsActive(){

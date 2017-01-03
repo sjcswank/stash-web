@@ -25,9 +25,9 @@
 		<div id="navigation">
 			<ul>
 			    <li><a th:href="'/' + ${username} + '/dashboard/'" ><span>Dashboard</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/locations/'" class="active"><span>Locations</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/locations/'"><span>Locations</span></a></li>
 			    <li><a th:href="'/' + ${username} + '/materials/'"><span>Materials</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/projects/'"><span>Projects</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/projects/'" class="active"><span>Projects</span></a></li>
 			    <li><a th:href="'/' + ${username} + '/reports/'"><span>Reports</span></a></li>
 			    <li><a th:href="'/' + ${username} + '/usermanagement/'"><span>User Management</span></a></li>
 			</ul>
@@ -44,9 +44,9 @@
 		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<a th:href="'/' + ${username} + '/locations'">Locations</a>
+			<a th:href="'/' + ${username} + '/' + ${param.type}" th:text="${param.type}"></a>
 			<span>&gt;</span>
-			New Item
+			Add a Material to a Project!
 		</div>
 		<!-- End Small Nav -->
 
@@ -64,7 +64,7 @@
 				<div class="box">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2>Add New Item</h2>
+						<h2>Add <span th:text="${item.getName()}"></span> to a <span th:text="${listType}"></span></h2>
 					</div>
 					<!-- End Box Head -->
 					
@@ -72,32 +72,25 @@
 						
 						<!-- Form -->
 						<div class="form">
-								<p>
-									<span class="req">max 100 symbols</span>
-									<label>Item Name <span>(Required Field)</span></label>
-									<input type="text" class="field size1" name="itemName" th:value="${itemName}"></input>
-								</p>	
 								<p class="inline-field">
-									<label>Type</label>
-									<select class="field size3" name="type" id="type">
-  										<option value="material">Material</option>
-  										<option value="project">Project</option>
+								<label>Select a <span th:text="${listType}">:</span></label>
+									<select name="listItem" id="listItem" class="field">
+  										<option th:each="i : ${itemsList}" 
+          									th:value="${i.uid}" 
+          									th:text="${i.name}"></option>
 									</select>
-									<label>Qty</label>
+									<label>Quantity Needed</label>
 									<input class="field size2" type="number" name="qty">
 									</input>
-									<label>Location</label>
-									<select class="field size3" name="location" id="location">
-  										<option th:text="${location.name}" th:value="${location.uid}"></option>
-									</select>
+									
 								</p>							
 						</div>
 						<!-- End Form -->
 						
 						<!-- Form Buttons -->
 						<div class="buttons">
-							<button type="submit" class="button" name="save" value="add">Save and Add Items</button>
-							<button type="submit" class="button" name="save" value="Save">Save</button>
+							<button type="submit" class="button" name="save" value="add">Save and Add Another</button>
+							<button type="submit" class="button" name="save" value="save">Save</button>
 						</div>
 						<!-- End Form Buttons -->
 					</form>

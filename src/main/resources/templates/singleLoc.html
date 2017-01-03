@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="template :: dochead">
@@ -23,8 +24,8 @@
 		<!-- Main Nav -->
 		<div id="navigation">
 			<ul>
-			    <li><a th:href="'/' + ${username} + '/dashboard/'" class="active"><span>Dashboard</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/locations/'"><span>Locations</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/dashboard/'" ><span>Dashboard</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/locations/'" class="active"><span>Locations</span></a></li>
 			    <li><a th:href="'/' + ${username} + '/materials/'"><span>Materials</span></a></li>
 			    <li><a th:href="'/' + ${username} + '/projects/'"><span>Projects</span></a></li>
 			    <li><a th:href="'/' + ${username} + '/reports/'"><span>Reports</span></a></li>
@@ -35,18 +36,17 @@
 </div>
 </div>
 <!-- End Header -->
-
-
-
-<!-- Container -->
+	
+	
+	<!-- Container -->
 <div id="container">
 	<div class="shell">
 		
 		<!-- Small Nav -->
 		<div class="small-nav">
-			<a th:href="'/' + ${username} + '/dashboard/'">Dashboard</a>
+			<a th:href="'/' + ${username} + '/locations'">Locations</a>
 			<span>&gt;</span>
-			Recent Items
+			<strong><span th:text="${location.name}"></span></strong>
 		</div>
 		<!-- End Small Nav -->
 
@@ -59,46 +59,93 @@
 			
 			<!-- Content -->
 			<div id="content">
+			
+							<!-- Box -->
+				<div class="box">				
 				
-				<!-- Box -->
-				<div class="box">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">Recent Materials</h2>
-						
+						<h2 class="left" th:text="${location.name}"></h2>
+
 					</div>
-
+				
 					<!-- End Box Head -->	
-
-					<!-- Table -->
+					
 					<div class="table">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								<th width="13"><input type="checkbox" class="checkbox" /></th>
-								<th>Name</th>
-								<th>Qty</th>
-								<th>Modified</th>
+								<th>Description</th>
+								<th>Full</th>
 								<th width="110" class="ac">Edit</th>
 							</tr>
 							
-							<tr th:each="material : ${materials}" th:unless="${materials} == null">
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a th:href="'/' + ${username} + '/materials/' + ${material.uid}" th:text="${material.name}"></a></h3></td>
-								<td th:text="${material.qty}"></td>
-								<td th:test="${#dates.format(material.modified, 'yyyy-MM-dd')}"></td>
+							<tr>
+								<!-- <td><h3 th:text="${location.description}"></h3></td>  -->
+								<td>Description Here.</td>
+								<td>isFull</td>
 								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
 							</tr>
 						</table>
 					</div>
-				</div>
+					</div>
+					
+					
+					
+					<!-- Box -->
+				<div class="box">				
 				
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2 class="left">Materials</h2>
+
+					</div>
+				
+					<!-- End Box Head -->	
+					
+					<div class="table">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>Name</th>
+								<th>Quantity</th>
+								<th width="110" class="ac">Edit</th>
+							</tr>
+							
+							<tr th:each="material : ${materials}" th:unless="${materials == null}">
+								<td><h3><a th:href="'/' + ${username} + '/materials/' + ${material.uid}" th:text="${material.name}"></a></h3></td>
+								<td th:text="${material.getQty()}"></td>
+								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+							</tr>
+						</table>
+					</div>
+					
+					<!-- Paging -->
+					<div class="pagging">
+							<div class="left">Showing 1-12 of 44</div>
+							<div class="right">
+								<a href="#">Previous</a>
+								<a href="#">1</a>
+								<a href="#">2</a>
+								<a href="#">3</a>
+								<a href="#">4</a>
+								<a href="#">245</a>
+								<span>...</span>
+								<a href="#">Next</a>
+								<a href="#">View all</a>
+							</div>
+						</div>
+						<!-- End Paging -->
+					</div>
+					
+					
+					
+					
 				<!-- Box -->
 				<div class="box">				
 				
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">Recent Projects</h2>
-						
+						<h2 class="left">Projects</h2>
+
 					</div>
 				
 					<!-- End Box Head -->	
@@ -106,64 +153,45 @@
 					<div class="table">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								<th width="13"><input type="checkbox" class="checkbox" /></th>
 								<th>Name</th>
-								<th>Active</th>
-								<th>Modified</th>
+								<th>Quantity</th>
 								<th width="110" class="ac">Edit</th>
 							</tr>
 							
-							<tr th:each="project : ${projects}" th:unless="${projects} == null">
-								<td><input type="checkbox" class="checkbox" /></td>
+							<tr th:each="project : ${projects}" th:unless="${projects == null}">
 								<td><h3><a th:href="'/' + ${username} + '/projects/' + ${project.uid}" th:text="${project.name}"></a></h3></td>
-								<td>IsActive</td>
-								<!-- <td th:text="${project.getIsActiveOutput()}"> -->
-								<td th:test="${#dates.format(project.modified, 'yyyy-MM-dd')}"></td>
+								<td th:text="${project.getQty()}"></td>
 								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
 							</tr>
 						</table>
 					</div>
-					</div>
-
-						
-				<!-- Box -->
-				<div class="box">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">Recent Locations</h2>
-						
-					</div>
-					<!-- End Box Head -->	
 					
-					<div class="table">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<th width="13"><input type="checkbox" class="checkbox" /></th>
-								<th>Name</th>
-								<th>Full</th>
-								<th>Modified</th>
-								<th width="110" class="ac">Edit</th>
-							</tr>
-							
-							<tr th:each="location : ${locations}" th:unless="${locations} == null">
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a th:href="'/' + ${username} + '/locations/' + ${location.uid}" th:text="${location.name}"></a></h3></td>
-								<td>IsFull</td>
-								<!-- <td th:text="${location.getIsFullOutput()}"></td> -->
-								<td th:test="${#dates.format(location.modified, 'yyyy-MM-dd')}"></td>
-								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
-							</tr>
-						</table>
+					<!-- Paging -->
+					<div class="pagging">
+							<div class="left">Showing 1-12 of 44</div>
+							<div class="right">
+								<a href="#">Previous</a>
+								<a href="#">1</a>
+								<a href="#">2</a>
+								<a href="#">3</a>
+								<a href="#">4</a>
+								<a href="#">245</a>
+								<span>...</span>
+								<a href="#">Next</a>
+								<a href="#">View all</a>
+							</div>
+						</div>
+						<!-- End Paging -->
+					
 					</div>
-				</div>
-			
-						
-						
-						
-						
+					
+					
+				
+					
+					
 			</div>
 
-	<!-- Sidebar -->
+<!-- Sidebar -->
 			<div id="sidebar">
 				
 				<!-- Box -->
@@ -176,33 +204,31 @@
 					<!-- End Box Head-->
 					
 					<div class="box-content">
-						<a th:href="'/' + ${username} + '/newmaterial'" class="add-button"><span>Add new Material</span></a>
+						<a th:href="'/' + ${username} +'/locations/' + ${location.getUid()} + '/newitem'" class="add-button"><span>Create new Item</span></a>
 						<div class="cl">&nbsp;</div>
 						<br />
-						<a th:href="'/' + ${username} + '/newproject'" class="add-button"><span>Add new Project</span></a>
-						<div class="cl">&nbsp;</div>
-						<br />
-						<a th:href="'/' + ${username} + '/newlocation'" class="add-button"><span>Add new Location</span></a>
+						<a th:href="'/' + ${username} +'/locations/' + ${location.getUid()} + '/additem'" class="add-button"><span>Add an Existing Item</span></a>
 						<div class="cl">&nbsp;</div>
 						
 						<p class="select-all"><input type="checkbox" class="checkbox" /><label>select all</label></p>
 						<p><a href="#">Delete Selected</a></p>
 						
-						<!-- Search -->
+						<!-- Sort -->
 						<div class="sort">
-							<label>Search All Items</label>
-							<input type="text" class="field" />
-							<br />
-							<input type="submit" class="button" value="search" />
+							<label>Sort by</label>
+							<select class="field" name="sort" id="sort">
+								<option value="name">Name</option>
+								<option value="qty">Quantity Used</option>
+								<option value="modified">Last Modified</option>
+							</select>
 						</div>
-						<!-- End Search -->
+						<!-- End Sort -->
 						
 					</div>
 				</div>
 				<!-- End Box -->
 			</div>
 			<!-- End Sidebar -->
-
 	
 			</div>
 		<!-- Main -->

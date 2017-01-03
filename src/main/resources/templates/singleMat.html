@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="template :: dochead">
@@ -35,10 +36,9 @@
 </div>
 </div>
 <!-- End Header -->
-
-
-
-<!-- Container -->
+	
+	
+	<!-- Container -->
 <div id="container">
 	<div class="shell">
 		
@@ -46,7 +46,7 @@
 		<div class="small-nav">
 			<a th:href="'/' + ${username} + '/materials'">Materials</a>
 			<span>&gt;</span>
-			All Materials
+			<strong><span th:text="${material.name}"></span></strong>
 		</div>
 		<!-- End Small Nav -->
 
@@ -59,50 +59,78 @@
 			
 			<!-- Content -->
 			<div id="content">
+			
+							<!-- Box -->
+				<div class="box">				
 				
-				<!-- Box -->
-				<div class="box">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">All Materials</h2>
-						<div class="right">
-							<label>sort materials&nbsp;</label>
-							<select id="sort" name="sort" class="field small-field">
-								<option value="a_z">Alphabetically (ascending)</option>
-								<option value="z_a">Alphabetically (descending)</option>
-								<option value="recent">Most Recent</option>
-							</select>
-						</div>
+						<h2 class="left" th:text="${material.name}"></h2>
+
 					</div>
-
+				
 					<!-- End Box Head -->	
-
-					<!-- Table -->
+					
 					<div class="table">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								<th width="13"><input type="checkbox" class="checkbox" /></th>
-								<th>Name</th>
-								<th>Qty</th>
-								<th>Modified</th>
+								<th>Description</th>
+								<th>Quantity</th>
+								<th>Over/Under Stocked</th>
+								<!-- <th>Currently Available</th> -->
+								<th>Location</th>
+								
 								<th width="110" class="ac">Edit</th>
 							</tr>
 							
-							<tr th:each="material : ${materials}">
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td><h3><a th:href="'/' + ${username} + '/materials/' + ${material.uid}" th:text="${material.name}"></a></h3></td>
+							<tr>
+								<td><h3 th:text="${material.name}"></h3></td>
 								<td th:text="${material.qty}"></td>
-								<td th:test="${#dates.format(material.modified, 'yyyy-MM-dd')}"></td>
+								<!-- <td th:text="${material.stocked}"></td> -->
+								<td>0</td>
+								<!-- <td th:text="${material.available}></td> -->
+								<td><h3><a th:href="'/' + ${username} + '/locations/' + ${material.location.uid}" th:text="${material.location.name}"></a></h3></td>
 								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
 							</tr>
 						</table>
 					</div>
-				</div>
-		
+					</div>
+					
+					<!-- Box -->
+				<div class="box">				
+				
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2 class="left">Projects</h2>
+
+					</div>
+				
+					<!-- End Box Head -->	
+					
+					<div class="table">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>Name</th>
+								<th>Quantity Needed</th>
+								<!-- <th>Active</th> -->
+								<th width="110" class="ac">Edit</th>
+							</tr>
+							
+							<tr th:each="pm : ${projectMaterials}" th:unless="${pm == null}">
+								<td><a th:href="'/' + ${username} + '/projects/' + ${pm.getProject().getUid()}"><h3 th:text="${pm.getProject().getName()}" th:unless="${pm == null}"></h3></a></td>
+								<td th:text="${pm.getQty()}"></td>
+								<!-- <td th:text="${p.getProject.getIsActiveOutput()}"></td> -->
+								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+							</tr>
+						</table>
+					</div>
+					</div>
+					
+					
 			</div>
 
-	<!-- Sidebar -->
-			<div id="sidebar" th:fragment="sidebar">
+<!-- Sidebar -->
+			<div id="sidebar">
 				
 				<!-- Box -->
 				<div class="box">
@@ -114,20 +142,25 @@
 					<!-- End Box Head-->
 					
 					<div class="box-content">
-						<a href="/${username}/newmaterial" class="add-button"><span>Add new Material</span></a>
+						<a href="/${username}/newproject" class="add-button"><span>Create new Project</span></a>
+						<div class="cl">&nbsp;</div>
+						<br />
+						<a th:href="'/' + ${username} + '/materials/' + ${material.uid} + '/addMaterials'" class="add-button"><span>Add an Existing Project</span></a>
 						<div class="cl">&nbsp;</div>
 						
 						<p class="select-all"><input type="checkbox" class="checkbox" /><label>select all</label></p>
 						<p><a href="#">Delete Selected</a></p>
 						
-						<!-- Search -->
+						<!-- Sort -->
 						<div class="sort">
-							<label>Search All Materials</label>
-							<input type="text" class="field" />
-							<br />
-							<input type="submit" class="button" value="search" />
+							<label>Sort by</label>
+							<select class="field" name="sort" id="sort">
+								<option value="name">Name</option>
+								<option value="qty">Quantity Used</option>
+								<option value="modified">Last Modified</option>
+							</select>
 						</div>
-						<!-- End search -->
+						<!-- End Sort -->
 						
 					</div>
 				</div>

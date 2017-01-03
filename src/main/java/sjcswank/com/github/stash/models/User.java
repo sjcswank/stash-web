@@ -1,6 +1,7 @@
 package sjcswank.com.github.stash.models;
 
-import java.util.ArrayList;
+import java.util.Date;
+import java.util.Set;
 
 //modified code from https://github.com/LaunchCodeEducation/blogz-spring/blob/master/src/main/java/org/launchcode/blogz/models/User.java
 
@@ -22,17 +23,9 @@ public class User extends AbstractEntity {
 	private String username;
 	private String pwHash;
 	private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-//	//added code
-//	@OneToMany(mappedBy= "user")
-//	private List materials;
-//	@OneToMany(mappedBy= "user")
-//	private List projects;
-//	@OneToMany(mappedBy= "user")
-//	private List locations;
-//	//end added code
+	private Set<ProjectMaterial> projectMaterials;
+	private Set<Item> items;
 
-	@OneToMany(mappedBy = "user", targetEntity=Item.class)
-	private ArrayList<Item> items;
 	
 	public User() {}
 	
@@ -58,6 +51,7 @@ public class User extends AbstractEntity {
 	@SuppressWarnings("unused")
 	private void setPwHash(String pwHash) {
 		this.pwHash = pwHash;
+		this.setModified(new Date());
 	}
 	
 	@NotNull
@@ -73,6 +67,7 @@ public class User extends AbstractEntity {
 	@SuppressWarnings("unused")
 	private void setUsername(String username) {
 		this.username = username;
+		this.setModified(new Date());
 	}
 	
 	public boolean isMatchingPassword(String password) {
@@ -92,13 +87,24 @@ public class User extends AbstractEntity {
 	}
 	//End code from Launchcode
 	
-	public void setItems(ArrayList items){
+	public void setItems(Set<Item> items){
 		this.items = items;
+		this.setModified(new Date());
 	}
 	
-
-	public ArrayList getItems(){
+	@OneToMany(mappedBy = "owner", targetEntity=Item.class)
+	public Set<Item> getItems(){
 		return items;
+	}
+
+	public void setProjectMaterials(Set<ProjectMaterial> projectMaterials){
+		this.projectMaterials = projectMaterials;
+		this.setModified(new Date());
+	}
+	
+	@OneToMany(mappedBy = "owner", targetEntity=ProjectMaterial.class)
+	public Set<ProjectMaterial> getProjectMaterials(){
+		return projectMaterials;
 	}
 	
 //	public void addMaterial(Material material){

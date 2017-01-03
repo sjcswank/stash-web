@@ -1,12 +1,10 @@
 package sjcswank.com.github.stash.models;
 
-import java.util.ArrayList;
+import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -14,9 +12,10 @@ abstract public class Storable extends Item{
 	
 	int qty;
 	Location location;
+
 	
-	@Column(name="used")
-	ArrayList<Storable> used;
+
+
 	
 //	//Materials and Projects can be stored in locations
 //	abstract public void setLocation(Location newLocation);
@@ -30,25 +29,46 @@ abstract public class Storable extends Item{
 
 	public void setQty(int qty){
 		this.qty = qty;
+		this.setModified(new Date());
 	}
 	
-	@ManyToOne
-	@JoinColumn(name="location_id") //nullable = false
+	@ManyToOne(cascade=CascadeType.ALL)
 	public Location getLocation(){
 		return location;
 	}
 	
 	public void setLocation(Location location){
 		this.location = location;
+		this.setModified(new Date());
 	}
 	
+	
+	@Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + uid;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        return result;
+    }
 
-	public ArrayList<Storable> getUsed(){
-		return used;
-	}
 	
-	public void setUsed(ArrayList<Storable> used){
-		this.used = used;
-	}
+	   @Override
+	    public boolean equals(Object obj) {
+	        if (this == obj)
+	            return true;
+	        if (obj == null)
+	            return false;
+	        if (getClass() != obj.getClass())
+	            return false;
+	        final Storable other = (Storable) obj;
+	        if (uid != other.uid)
+	            return false;
+	        if (!created.equals(other.created)) {
+	            return false;
+	        }
+	        return true;
+	    }
+	
 
 }

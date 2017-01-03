@@ -34,6 +34,8 @@ abstract class AbstractEntity {
   
   public void setUid(int uid){
 	  this.uid = uid;
+	  this.setCreated(new Date());
+	  this.setModified(new Date());
   }
   
   @Column(name= "modified")
@@ -52,6 +54,7 @@ abstract class AbstractEntity {
   
   public void setCreated(Date created){
 	  this.created = created;
+	  this.setModified(new Date());
   }
   //end Lanuchcode code
   

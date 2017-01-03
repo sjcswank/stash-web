@@ -1,5 +1,7 @@
 package sjcswank.com.github.stash.models;
-import java.util.ArrayList;
+import java.util.Date;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -7,20 +9,33 @@ import javax.persistence.OneToMany;
 @Entity
 public class Location extends Item {
 	
-//	boolean isFull = false;
+	boolean isFull = false;
+	Set<Storable> held;
+	
+	public Location(){
+		this.name="default";
+	}
+	
+	public void setHeld(Set<Storable> held){
+		this.held = held;
+		this.setModified(new Date());
+	}
+
 	@OneToMany(mappedBy = "location", targetEntity=Storable.class)
-	ArrayList<Storable> held;
+	public Set<Storable> getHeld(){
+		return held;
+	}
 	
-	public Location(){}
 	
-//	public void setIsFull(boolean full){
-//		isFull = full;
-//	}
-//	
-//	@Column(name = "isFull")
-//	public boolean getIsFull(){
-//		return isFull;
-//	}
+	
+	public void setIsFull(boolean full){
+		isFull = full;
+	}
+	
+	@Column(name = "isFull")
+	public boolean getIsFull(){
+		return isFull;
+	}
 //	
 //	public String getIsFullOutput(){
 //		if(isFull == true){
@@ -34,13 +49,4 @@ public class Location extends Item {
 //	public void setIsFullOutput(String output){
 //		
 //	}
-	
-	public void setHeld(ArrayList<Storable> held){
-		this.held = held;
-	}
-
-
-	public ArrayList<Storable> getHeld(){
-		return held;
-	}
 }

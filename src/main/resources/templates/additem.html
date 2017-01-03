@@ -46,7 +46,7 @@
 		<div class="small-nav">
 			<a th:href="'/' + ${username} + '/locations'">Locations</a>
 			<span>&gt;</span>
-			New Item
+			Add an Item to a Location!
 		</div>
 		<!-- End Small Nav -->
 
@@ -64,7 +64,7 @@
 				<div class="box">
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2>Add New Item</h2>
+						<h2>Add an Item to a <span th:text="${location.name}"></span></h2>
 					</div>
 					<!-- End Box Head -->
 					
@@ -72,31 +72,23 @@
 						
 						<!-- Form -->
 						<div class="form">
-								<p>
-									<span class="req">max 100 symbols</span>
-									<label>Item Name <span>(Required Field)</span></label>
-									<input type="text" class="field size1" name="itemName" th:value="${itemName}"></input>
-								</p>	
 								<p class="inline-field">
-									<label>Type</label>
-									<select class="field size3" name="type" id="type">
-  										<option value="material">Material</option>
-  										<option value="project">Project</option>
+									<label>Select an Item:</label>
+									<select name="listItem" id="listItem" class="field">
+  										<option th:each="i : ${itemsList}" 
+          									th:value="${i.uid}" 
+          									th:text="${i.name}"></option>
 									</select>
-									<label>Qty</label>
-									<input class="field size2" type="number" name="qty">
-									</input>
-									<label>Location</label>
-									<select class="field size3" name="location" id="location">
-  										<option th:text="${location.name}" th:value="${location.uid}"></option>
-									</select>
+									<label>What type of Item is this?</label>
+									<input type="radio" class="checkbox" name="type" id="type" value="material">Material&nbsp;
+									<input type="radio" class="checkbox" name="type" id="type" value="project">Project
 								</p>							
 						</div>
 						<!-- End Form -->
 						
 						<!-- Form Buttons -->
 						<div class="buttons">
-							<button type="submit" class="button" name="save" value="add">Save and Add Items</button>
+							<button type="submit" class="button" name="save" value="add">Save and Add Another</button>
 							<button type="submit" class="button" name="save" value="Save">Save</button>
 						</div>
 						<!-- End Form Buttons -->

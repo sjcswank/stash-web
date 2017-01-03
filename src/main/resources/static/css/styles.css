@@ -18,6 +18,7 @@ textarea { overflow:hidden; }
 .button:hover { color:#333; border-color:#857b42; }
 
 
+.form .inline-field .search:focus { color:#000; border-color:#857b42; width: 100%;}
 .field:focus { color:#000; border-color:#857b42;}
 
 a img { border:0; }
@@ -77,7 +78,6 @@ h3 a{ text-decoration: none; }
 #main {}
 #content { float:left; width:750px; }
 #sidebar { float:right; width:225px; }
-
 
 .table {}
 .table th{ background:#fffdfa url(images/th.gif) repeat-x 0 0; color:#818181; text-align: left; padding:7px 10px; border-bottom:solid 1px #d2d1cb;}

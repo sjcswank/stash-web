@@ -1,6 +1,6 @@
 package sjcswank.com.github.stash.models.dao;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -19,6 +19,6 @@ public interface UserDao extends CrudRepository<User, Integer> {
     
     User findByUsername(String username);
     
-    List<User> findAll();
+    Set<User> findAll();
 
 }
