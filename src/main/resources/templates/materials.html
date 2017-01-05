@@ -66,12 +66,16 @@
 					<div class="box-head">
 						<h2 class="left">All Materials</h2>
 						<div class="right">
+							<form action="" method="post">
 							<label>sort materials&nbsp;</label>
 							<select id="sort" name="sort" class="field small-field">
 								<option value="a_z">Alphabetically (ascending)</option>
 								<option value="z_a">Alphabetically (descending)</option>
 								<option value="recent">Most Recent</option>
 							</select>
+							<input type="hidden" name="hiddenAction" value="sort" />
+							<button type="submit" class="button" name ="sort" value="sort">sort</button>
+							</form>
 						</div>
 					</div>
 
@@ -114,7 +118,7 @@
 					<!-- End Box Head-->
 					
 					<div class="box-content">
-						<a href="/${username}/newmaterial" class="add-button"><span>Add new Material</span></a>
+						<a th:href="'/' + ${username} + '/newmaterial'" class="add-button"><span>Add new Material</span></a>
 						<div class="cl">&nbsp;</div>
 						
 						<p class="select-all"><input type="checkbox" class="checkbox" /><label>select all</label></p>
@@ -122,12 +126,15 @@
 						
 						<!-- Search -->
 						<div class="sort">
+						<form action="" method="post">
 							<label>Search All Materials</label>
-							<input type="text" class="field" />
+							<input type="text" class="field" name="search" />
 							<br />
+							<input type="hidden" name="hiddenAction" value="search" />
 							<input type="submit" class="button" value="search" />
+							</form>
 						</div>
-						<!-- End search -->
+						<!-- End Search -->
 						
 					</div>
 				</div>

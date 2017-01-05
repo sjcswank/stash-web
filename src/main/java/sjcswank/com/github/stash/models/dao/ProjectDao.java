@@ -30,4 +30,16 @@ public interface ProjectDao extends CrudRepository<Project, Integer>{
     
     @Query(value = "SELECT * FROM project WHERE owner_uid = :ownerId ORDER BY modified DESC LIMIT 10", nativeQuery = true)
     Set<Project> findByModified10(@Param("ownerId") int ownerId);
+    
+    @Query(value = "SELECT * FROM project WHERE owner_uid = :ownerId ORDER BY modified DESC", nativeQuery = true)
+    Set<Project> findByModified(@Param("ownerId") int ownerId);
+    
+    @Query(value = "SELECT * FROM project WHERE owner_uid = :ownerId ORDER BY name ASC", nativeQuery = true)
+    Set<Project> findByNameAsc(@Param("ownerId") int ownerId);
+    
+    @Query(value = "SELECT * FROM project WHERE owner_uid = :ownerId ORDER BY name DESC", nativeQuery = true)
+    Set<Project> findByNameDesc(@Param("ownerId") int ownerId);
+    
+    @Query(value = "SELECT * FROM project WHERE owner_uid = :ownerId AND name LIKE '%:search%'", nativeQuery = true)
+    Set<Project> findBySearch(@Param("ownerId") int ownerId, @Param("search") String search);
 }

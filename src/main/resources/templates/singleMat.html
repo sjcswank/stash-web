@@ -142,7 +142,7 @@
 					<!-- End Box Head-->
 					
 					<div class="box-content">
-						<a href="/${username}/newproject" class="add-button"><span>Create new Project</span></a>
+						<a th:href="'/' + ${username} + '/materials/' + ${material.uid} + '/addNewMaterials'" class="add-button"><span>Create new Project</span></a>
 						<div class="cl">&nbsp;</div>
 						<br />
 						<a th:href="'/' + ${username} + '/materials/' + ${material.uid} + '/addMaterials'" class="add-button"><span>Add an Existing Project</span></a>

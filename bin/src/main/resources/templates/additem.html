@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+
+<!-- Header -->
+<div id="header">
+	<div class="shell">
+		<!-- Logo + Top Nav -->
+		<div id="top">
+			<h1><a href="#">Stash</a></h1>
+			<div id="top-navigation">
+				Welcome <a href="#"><strong th:text="${username}"></strong></a>
+				<span>|</span>
+				<a href="#">Profile Settings</a>
+				<span>|</span>
+				<a href="/logout">Log out</a>
+			</div>
+		</div>
+
+		<!-- End Logo + Top Nav -->
+		<!-- Main Nav -->
+		<div id="navigation">
+			<ul>
+			    <li><a th:href="'/' + ${username} + '/dashboard/'" ><span>Dashboard</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/locations/'" class="active"><span>Locations</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/materials/'"><span>Materials</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/projects/'"><span>Projects</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/reports/'"><span>Reports</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/usermanagement/'"><span>User Management</span></a></li>
+			</ul>
+		</div>
+		<!-- End Main Nav -->
+</div>
+</div>
+<!-- End Header -->
+	
+	
+	<!-- Container -->
+<div id="container">
+	<div class="shell">
+		
+		<!-- Small Nav -->
+		<div class="small-nav">
+			<a th:href="'/' + ${username} + '/locations'">Locations</a>
+			<span>&gt;</span>
+			Add an Item to a Location!
+		</div>
+		<!-- End Small Nav -->
+
+		<br />
+		
+		
+		<!-- Main -->
+		<div id="main">
+			<div class="cl">&nbsp;</div>
+			
+			<!-- Content -->
+			<div id="content">
+
+				<!-- Box -->
+				<div class="box">
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2>Add an Item to a <span th:text="${location.name}"></span></h2>
+					</div>
+					<!-- End Box Head -->
+					
+					<form action="" method="post">
+						
+						<!-- Form -->
+						<div class="form">
+								<p class="inline-field">
+									<label>Select an Item:</label>
+									<select name="listItem" id="listItem" class="field">
+  										<option th:each="i : ${itemsList}" 
+          									th:value="${i.uid}" 
+          									th:text="${i.name}"></option>
+									</select>
+									<label>What type of Item is this?</label>
+									<input type="radio" class="checkbox" name="type" id="type" value="material">Material&nbsp;
+									<input type="radio" class="checkbox" name="type" id="type" value="project">Project
+								</p>							
+						</div>
+						<!-- End Form -->
+						
+						<!-- Form Buttons -->
+						<div class="buttons">
+							<button type="submit" class="button" name="save" value="add">Save and Add Another</button>
+							<button type="submit" class="button" name="save" value="Save">Save</button>
+						</div>
+						<!-- End Form Buttons -->
+					</form>
+				</div>
+				<!-- End Box -->
+
+			</div>
+
+
+	
+			</div>
+		<!-- Main -->
+	</div>
+</div>
+<br style="clear:both" /> <!-- So dirty! -->
+<!-- End Container -->
+
+	<div th:replace="template :: footer"></div>
+
+
+
+</body>
+</html>
+
+

@@ -102,7 +102,7 @@
 				
 					<!-- Box Head -->
 					<div class="box-head">
-						<h2 class="left">Projects</h2>
+						<h2 class="left">Materials</h2>
 
 					</div>
 				
@@ -143,10 +143,10 @@
 					<!-- End Box Head-->
 					
 					<div class="box-content">
-						<a href="/${username}/newmaterial" class="add-button"><span>Create new Material</span></a>
+						<a th:href="'/' + ${username} + '/projects/' + ${project.uid} + '/addNewMaterials'" class="add-button"><span>Create new Material</span></a>
 						<div class="cl">&nbsp;</div>
 						<br />
-						<a th:href="'/' + ${username} + '/projects/' + ${project.uid} + '/addmaterials'" class="add-button"><span>Add an Existing Material</span></a>
+						<a th:href="'/' + ${username} + '/projects/' + ${project.uid} + '/addMaterials'" class="add-button"><span>Add an Existing Material</span></a>
 						<div class="cl">&nbsp;</div>
 						
 						<p class="select-all"><input type="checkbox" class="checkbox" /><label>select all</label></p>

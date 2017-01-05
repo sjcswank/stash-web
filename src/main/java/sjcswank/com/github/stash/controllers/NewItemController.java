@@ -54,7 +54,6 @@ public class NewItemController extends AbstractController {
 			String itemName = request.getParameter("itemName");
 			User owner = this.getUserFromSession(request.getSession());
 			String save = request.getParameter("save");
-			String type = "material";
 			
 			//post has title and body
 			if (itemName == null || itemName == "" ){
@@ -79,7 +78,7 @@ public class NewItemController extends AbstractController {
 				
 				
 			model.addAttribute("username", username);
-			redirectAttrs.addAttribute("uid", material.getUid()).addAttribute("type", type);
+			redirectAttrs.addAttribute("uid", material.getUid());
 				
 			if(save.equals("add")){
 				Set<Project> plist = ProjectDao.findByOwner(owner);
@@ -91,7 +90,7 @@ public class NewItemController extends AbstractController {
 			}
 					
 				
-			return "redirect:/{username}/{type}/{uid}"; 
+			return "redirect:/{username}/materials/{uid}"; 
 			
 		}
 		
@@ -225,7 +224,7 @@ public class NewItemController extends AbstractController {
 		}
 		
 		
-		@RequestMapping(value = "{username}/location/{uid}/newitem", method = RequestMethod.POST)
+		@RequestMapping(value = "{username}/locations/{uid}/newitem", method = RequestMethod.POST)
 		public String newItem(HttpServletRequest request, @PathVariable String username, @PathVariable int uid,  Model model) {
 			
 			String error = null;

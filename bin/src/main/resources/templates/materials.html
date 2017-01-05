@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+
+<!-- Header -->
+<div id="header">
+	<div class="shell">
+		<!-- Logo + Top Nav -->
+		<div id="top">
+			<h1><a href="#">Stash</a></h1>
+			<div id="top-navigation">
+				Welcome <a href="#"><strong th:text="${username}"></strong></a>
+				<span>|</span>
+				<a href="#">Profile Settings</a>
+				<span>|</span>
+				<a href="/logout">Log out</a>
+			</div>
+		</div>
+
+		<!-- End Logo + Top Nav -->
+		<!-- Main Nav -->
+		<div id="navigation">
+			<ul>
+			    <li><a th:href="'/' + ${username} + '/dashboard/'" ><span>Dashboard</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/locations/'"><span>Locations</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/materials/'" class="active"><span>Materials</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/projects/'"><span>Projects</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/reports/'"><span>Reports</span></a></li>
+			    <li><a th:href="'/' + ${username} + '/usermanagement/'"><span>User Management</span></a></li>
+			</ul>
+		</div>
+		<!-- End Main Nav -->
+</div>
+</div>
+<!-- End Header -->
+
+
+
+<!-- Container -->
+<div id="container">
+	<div class="shell">
+		
+		<!-- Small Nav -->
+		<div class="small-nav">
+			<a th:href="'/' + ${username} + '/materials'">Materials</a>
+			<span>&gt;</span>
+			All Materials
+		</div>
+		<!-- End Small Nav -->
+
+		<br />
+		
+		
+		<!-- Main -->
+		<div id="main">
+			<div class="cl">&nbsp;</div>
+			
+			<!-- Content -->
+			<div id="content">
+				
+				<!-- Box -->
+				<div class="box">
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2 class="left">All Materials</h2>
+						<div class="right">
+							<label>sort materials&nbsp;</label>
+							<select id="sort" name="sort" class="field small-field">
+								<option value="a_z">Alphabetically (ascending)</option>
+								<option value="z_a">Alphabetically (descending)</option>
+								<option value="recent">Most Recent</option>
+							</select>
+						</div>
+					</div>
+
+					<!-- End Box Head -->	
+
+					<!-- Table -->
+					<div class="table">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th width="13"><input type="checkbox" class="checkbox" /></th>
+								<th>Name</th>
+								<th>Qty</th>
+								<th>Modified</th>
+								<th width="110" class="ac">Edit</th>
+							</tr>
+							
+							<tr th:each="material : ${materials}">
+								<td><input type="checkbox" class="checkbox" /></td>
+								<td><h3><a th:href="'/' + ${username} + '/materials/' + ${material.uid}" th:text="${material.name}"></a></h3></td>
+								<td th:text="${material.qty}"></td>
+								<td th:test="${#dates.format(material.modified, 'yyyy-MM-dd')}"></td>
+								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+		
+			</div>
+
+	<!-- Sidebar -->
+			<div id="sidebar" th:fragment="sidebar">
+				
+				<!-- Box -->
+				<div class="box">
+					
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2>Management</h2>
+					</div>
+					<!-- End Box Head-->
+					
+					<div class="box-content">
+						<a href="/${username}/newmaterial" class="add-button"><span>Add new Material</span></a>
+						<div class="cl">&nbsp;</div>
+						
+						<p class="select-all"><input type="checkbox" class="checkbox" /><label>select all</label></p>
+						<p><a href="#">Delete Selected</a></p>
+						
+						<!-- Search -->
+						<div class="sort">
+							<label>Search All Materials</label>
+							<input type="text" class="field" />
+							<br />
+							<input type="submit" class="button" value="search" />
+						</div>
+						<!-- End search -->
+						
+					</div>
+				</div>
+				<!-- End Box -->
+			</div>
+			<!-- End Sidebar -->
+	
+			</div>
+		<!-- Main -->
+	</div>
+</div>
+<br style="clear:both" /> <!-- So dirty! -->
+<!-- End Container -->
+
+	<div th:replace="template :: footer"></div>
+
+
+	</body>
+</html>

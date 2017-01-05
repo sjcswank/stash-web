@@ -26,5 +26,16 @@ public interface LocationDao extends CrudRepository<Location, Integer>{
     
     @Query(value = "SELECT * FROM location WHERE owner_uid = :ownerId ORDER BY modified DESC LIMIT 10", nativeQuery = true)
     Set<Location> findByModified10(@Param("ownerId") int ownerId);
+    
+    @Query(value = "SELECT * FROM location WHERE owner_uid = :ownerId ORDER BY modified DESC", nativeQuery = true)
+    Set<Location> findByModified(@Param("ownerId") int ownerId);
 
+    @Query(value = "SELECT * FROM location WHERE owner_uid = :ownerId ORDER BY name ASC", nativeQuery = true)
+    Set<Location> findByNameAsc(@Param("ownerId") int ownerId);
+    
+    @Query(value = "SELECT * FROM location WHERE owner_uid = :ownerId ORDER BY name DESC", nativeQuery = true)
+    Set<Location> findByNameDesc(@Param("ownerId") int ownerId);
+    
+    @Query(value = "SELECT * FROM location WHERE owner_uid = :ownerId AND name LIKE :search", nativeQuery = true)
+    Set<Location> findBySearch(@Param("ownerId") int ownerId, @Param("search") String search);
 }

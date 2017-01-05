@@ -45,7 +45,7 @@ public class AddItemController extends AbstractController {
 
 	
 	@RequestMapping(value = "{username}/{type}/{uid}/addMaterials", method = RequestMethod.GET)
-	public String newProjectMaterialForm(HttpServletRequest request, @PathVariable String username, @PathVariable int uid, @PathVariable String type, Model model) {
+	public String addProjectMaterialForm(HttpServletRequest request, @PathVariable String username, @PathVariable int uid, @PathVariable String type, Model model) {
 		User owner = this.getUserFromSession(request.getSession());
 		Set<Material> mlist = new HashSet<Material>();
 		Set<Project> plist = new HashSet<Project>();
@@ -73,7 +73,7 @@ public class AddItemController extends AbstractController {
 	}
 	
 	@RequestMapping(value = "{username}/{type}/{uid}/addMaterials", method = RequestMethod.POST)
-	public String newProjectMaterial(HttpServletRequest request, @PathVariable String username, @PathVariable int uid, @PathVariable String type, Model model) {
+	public String addProjectMaterial(HttpServletRequest request, @PathVariable String username, @PathVariable int uid, @PathVariable String type, Model model) {
 		
 		//get params	
 
@@ -111,14 +111,14 @@ public class AddItemController extends AbstractController {
 			return "redirect:/{username}/{type}/{uid}";
 		}
 		
-		return "addMaterials"; 
+		return "redirect:/{username}/{type}/{uid}/addMaterials"; 
 	}
 	
 	
 	
 	
 	@RequestMapping(value = "{username}/locations/{uid}/additem", method = RequestMethod.GET)
-	public String newItemForm(HttpServletRequest request, @PathVariable String username, @PathVariable int uid, Model model) {
+	public String addItemForm(HttpServletRequest request, @PathVariable String username, @PathVariable int uid, Model model) {
 		User owner = this.getUserFromSession(request.getSession());
 		Location location = LocationDao.findByUid(uid);
 		Set<Item> itemsList = new HashSet<Item>();
@@ -156,12 +156,102 @@ public class AddItemController extends AbstractController {
 		
 		model.addAttribute("username", username);
 		
-		if(save.equals("add")){
-			return "additem";
+		if(save.equals("save")){
+			return "redirect:/{username}/locations/{uid}";
 		}
 		
-		return "redirect:/{username}/location/{uid}";
+		return "redirect:/{username}/locations/{uid}/additem";
 		
 	}
+	
+	
+	
+
+	
+	@RequestMapping(value = "{username}/{type}/{uid}/addNewMaterials", method = RequestMethod.GET)
+	public String newProjectMaterialForm(HttpServletRequest request, @PathVariable String username, @PathVariable int uid, @PathVariable String type, Model model) {
+		User owner = this.getUserFromSession(request.getSession());
+		Set<Location> locations = LocationDao.findByOwner(owner);
+		model.addAttribute("locations", locations);
+		
+		if (type.equals("projects")){
+			
+			model.addAttribute("type", "Material");
+			model.addAttribute("item", ProjectDao.findByUid(uid));
+			
+		}
+		else if (type.equals("materials")){
+			
+			model.addAttribute("type", "Project");
+			model.addAttribute("item", MaterialDao.findByUid(uid));
+		}
+		else {
+			return "redirect:/{username}/dashboard";
+		}
+		
+		return "addNewMaterials";
+	}
+	
+	@RequestMapping(value = "{username}/{type}/{uid}/addNewMaterials", method = RequestMethod.POST)
+	public String newProjectMaterial(HttpServletRequest request, @PathVariable String username, @PathVariable int uid, @PathVariable String type, Model model) {
+		
+		//get params	
+
+		User owner = this.getUserFromSession(request.getSession());
+		String save = request.getParameter("save");
+		Project project = new Project();
+		Material material = new Material();
+		
+		//create new item
+		String itemName = request.getParameter("itemName");
+		int qty = 0;
+		if (request.getParameter("qty") != null && request.getParameter("qty") != ""){
+			qty = Integer.parseInt(request.getParameter("qty"));
+		}
+		int locationId = Integer.parseInt(request.getParameter("location"));
+		Location location = LocationDao.findByUid(locationId);
+		
+				
+		if (type.equals("projects")){
+			project = ProjectDao.findByUid(uid);
+			material.setName(itemName);
+			material.setOwner(owner);
+			material.setQty(qty);
+			material.setLocation(location);
+
+		}
+		else{ //type.equals("materials")
+			material = MaterialDao.findByUid(uid);
+			project.setName(itemName);
+			project.setOwner(owner);
+			project.setQty(qty);
+			project.setLocation(location);
+		}
+		
+		
+		//create new pm
+		ProjectMaterial pm = new ProjectMaterial();
+		int qtyNeeded = 0;
+		if (request.getParameter("qty") != null && request.getParameter("qty") != ""){
+			qtyNeeded = Integer.parseInt(request.getParameter("qty"));
+		}
+		
+		pm.setQty(qtyNeeded);
+		pm.setProject(project);
+		pm.setMaterial(material);
+		pm.setOwner(owner);
+		ProjectMaterialDao.save(pm);
+		
+		model.addAttribute("username", username);
+		
+		if (save.equals("save")){
+			return "redirect:/{username}/{type}/{uid}";
+		}
+		
+		return "redirect:/{username}/{type}/{uid}/addNewMaterials"; 
+	}
+	
+	
+	
 
 }
