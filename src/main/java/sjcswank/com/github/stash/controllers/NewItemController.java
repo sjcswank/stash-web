@@ -53,21 +53,23 @@ public class NewItemController extends AbstractController {
 			//get params	
 			String itemName = request.getParameter("itemName");
 			User owner = this.getUserFromSession(request.getSession());
-			String save = request.getParameter("save");
+//			String save = request.getParameter("save");
 			
 			//post has title and body
-			if (itemName == null || itemName == "" ){
-				error = "A name is required!";
-				model.addAttribute("error", error);
-				return "newMaterial";
-			}
+//			if (itemName == null || itemName == "" ){
+//				error = "A name is required!";
+//				model.addAttribute("error", error);
+//				return "newMaterial";
+//			}
 			
-			int locationId = Integer.parseInt(request.getParameter("location"));
-			Location location = LocationDao.findByUid(locationId);
+//			int locationId = Integer.parseInt(request.getParameter("location"));
+			Location location = LocationDao.findByUid(1);
+			
 			int qty = 0;
 			if (request.getParameter("qty") != null && request.getParameter("qty") != ""){
 				qty = Integer.parseInt(request.getParameter("qty"));
 			}
+			
 			Material material = new Material();
 			material.setOwner(owner);
 			material.setName(itemName);
@@ -80,14 +82,14 @@ public class NewItemController extends AbstractController {
 			model.addAttribute("username", username);
 			redirectAttrs.addAttribute("uid", material.getUid());
 				
-			if(save.equals("add")){
-				Set<Project> plist = ProjectDao.findByOwner(owner);
-				
-				model.addAttribute("itemsList", plist);
-				model.addAttribute("listType", "Project");
-				model.addAttribute("item", material);
-				return "addMaterials";
-			}
+//			if(save.equals("add")){
+//				Set<Project> plist = ProjectDao.findByOwner(owner);
+//				
+//				model.addAttribute("itemsList", plist);
+//				model.addAttribute("listType", "Project");
+//				model.addAttribute("item", material);
+//				return "addMaterials";
+//			}
 					
 				
 			return "redirect:/{username}/materials/{uid}"; 
@@ -129,8 +131,9 @@ public class NewItemController extends AbstractController {
 				return "newProject";
 			}
 			
-			int locationId = Integer.parseInt(request.getParameter("location"));
-			Location location = LocationDao.findByUid(locationId);
+			//int locationId = Integer.parseInt(request.getParameter("location"));
+			Location location = LocationDao.findByUid(1);
+			
 			int qty = 0;
 			if (request.getParameter("qty") != null && request.getParameter("qty") != ""){
 				qty = Integer.parseInt(request.getParameter("qty"));

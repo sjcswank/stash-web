@@ -1,244 +1,141 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="template :: dochead">
+<head th:replace="secureTemplate :: dochead">
 </head>
 <body>
 
-<!-- Header -->
-<div id="header">
-	<div class="shell">
-		<!-- Logo + Top Nav -->
-		<div id="top">
-			<h1><a href="#">Stash</a></h1>
-			<div id="top-navigation">
-				Welcome <a href="#"><strong th:text="${username}"></strong></a>
-				<span>|</span>
-				<a href="#">Profile Settings</a>
-				<span>|</span>
-				<a href="/logout">Log out</a>
-			</div>
-		</div>
-
-		<!-- End Logo + Top Nav -->
-		<!-- Main Nav -->
-		<div id="navigation">
-			<ul>
-			    <li><a th:href="'/' + ${username} + '/dashboard/'" ><span>Dashboard</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/locations/'" class="active"><span>Locations</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/materials/'"><span>Materials</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/projects/'"><span>Projects</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/reports/'"><span>Reports</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/usermanagement/'"><span>User Management</span></a></li>
-			</ul>
-		</div>
-		<!-- End Main Nav -->
-</div>
-</div>
-<!-- End Header -->
-	
-	
-	<!-- Container -->
-<div id="container">
-	<div class="shell">
+	<!-- dashboard navbar -->
+	<section th:replace="locations :: locationsNav">
 		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			<a th:href="'/' + ${username} + '/locations'">Locations</a>
-			<span>&gt;</span>
-			<strong><span th:text="${location.name}"></span></strong>
-		</div>
-		<!-- End Small Nav -->
+	</section>
 
-		<br />
-		
-		
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
-			<!-- Content -->
-			<div id="content">
-			
-							<!-- Box -->
-				<div class="box">				
-				
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left" th:text="${location.name}"></h2>
-
-					</div>
-				
-					<!-- End Box Head -->	
-					
-					<div class="table">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<th>Description</th>
-								<th>Full</th>
-								<th width="110" class="ac">Edit</th>
-							</tr>
-							
-							<tr>
-								<!-- <td><h3 th:text="${location.description}"></h3></td>  -->
-								<td>Description Here.</td>
-								<td>isFull</td>
-								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
-							</tr>
-						</table>
-					</div>
-					</div>
-					
-					
-					
-					<!-- Box -->
-				<div class="box">				
-				
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">Materials</h2>
-
-					</div>
-				
-					<!-- End Box Head -->	
-					
-					<div class="table">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<th>Name</th>
-								<th>Quantity</th>
-								<th width="110" class="ac">Edit</th>
-							</tr>
-							
-							<tr th:each="material : ${materials}" th:unless="${materials == null}">
-								<td><h3><a th:href="'/' + ${username} + '/materials/' + ${material.uid}" th:text="${material.name}"></a></h3></td>
-								<td th:text="${material.getQty()}"></td>
-								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
-							</tr>
-						</table>
-					</div>
-					
-					<!-- Paging -->
-					<div class="pagging">
-							<div class="left">Showing 1-12 of 44</div>
-							<div class="right">
-								<a href="#">Previous</a>
-								<a href="#">1</a>
-								<a href="#">2</a>
-								<a href="#">3</a>
-								<a href="#">4</a>
-								<a href="#">245</a>
-								<span>...</span>
-								<a href="#">Next</a>
-								<a href="#">View all</a>
-							</div>
-						</div>
-						<!-- End Paging -->
-					</div>
-					
-					
-					
-					
-				<!-- Box -->
-				<div class="box">				
-				
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2 class="left">Projects</h2>
-
-					</div>
-				
-					<!-- End Box Head -->	
-					
-					<div class="table">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<th>Name</th>
-								<th>Quantity</th>
-								<th width="110" class="ac">Edit</th>
-							</tr>
-							
-							<tr th:each="project : ${projects}" th:unless="${projects == null}">
-								<td><h3><a th:href="'/' + ${username} + '/projects/' + ${project.uid}" th:text="${project.name}"></a></h3></td>
-								<td th:text="${project.getQty()}"></td>
-								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
-							</tr>
-						</table>
-					</div>
-					
-					<!-- Paging -->
-					<div class="pagging">
-							<div class="left">Showing 1-12 of 44</div>
-							<div class="right">
-								<a href="#">Previous</a>
-								<a href="#">1</a>
-								<a href="#">2</a>
-								<a href="#">3</a>
-								<a href="#">4</a>
-								<a href="#">245</a>
-								<span>...</span>
-								<a href="#">Next</a>
-								<a href="#">View all</a>
-							</div>
-						</div>
-						<!-- End Paging -->
-					
-					</div>
-					
-					
-				
-					
-					
-			</div>
-
-<!-- Sidebar -->
-			<div id="sidebar">
-				
-				<!-- Box -->
-				<div class="box">
-					
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Management</h2>
-					</div>
-					<!-- End Box Head-->
-					
-					<div class="box-content">
-						<a th:href="'/' + ${username} +'/locations/' + ${location.getUid()} + '/newitem'" class="add-button"><span>Create new Item</span></a>
-						<div class="cl">&nbsp;</div>
-						<br />
-						<a th:href="'/' + ${username} +'/locations/' + ${location.getUid()} + '/additem'" class="add-button"><span>Add an Existing Item</span></a>
-						<div class="cl">&nbsp;</div>
-						
-						<p class="select-all"><input type="checkbox" class="checkbox" /><label>select all</label></p>
-						<p><a href="#">Delete Selected</a></p>
-						
-						<!-- Sort -->
-						<div class="sort">
-							<label>Sort by</label>
-							<select class="field" name="sort" id="sort">
-								<option value="name">Name</option>
-								<option value="qty">Quantity Used</option>
-								<option value="modified">Last Modified</option>
-							</select>
-						</div>
-						<!-- End Sort -->
-						
-					</div>
-				</div>
-				<!-- End Box -->
-			</div>
-			<!-- End Sidebar -->
-	
-			</div>
-		<!-- Main -->
+	<div id="breadcrumbs">
+		<ol class="breadcrumb">
+			<li class="active"><a th:href="'/' + ${username} + '/locations/'">Locations</a> <span>&gt;</span> 
+			<strong><span th:text="${location.name}"></span></strong></li>
+		</ol>
 	</div>
-</div>
-<br style="clear:both" /> <!-- So dirty! -->
-<!-- End Container -->
-
-	<div th:replace="template :: footer"></div>
 
 
-	</body>
+  <section id="new">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12 title">
+                      <div>
+                        <h2 th:text="${location.name}">- <small>
+                            <div class="btn-group sort" role="group" aria-label="Sort">
+                                <a href="#"><button type="button" class="btn btn-default" aria-label="Left Align">
+                                    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                                </button></a> <a href="#">
+                                <a href="#"><button type="button" class="btn btn-default" aria-label="Left Align">
+                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                </button></a> </small></h2>
+                            </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-md-7 tableCol">
+
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <div>
+                                          <h4>Description</h4>
+                                          <p th:text="${location.description}"></p>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <div>
+                                          <p><strong>Is Full:</strong><span  th:text="${location.isFull()}"></span><a href="#">
+                                            <button type="button" class="btn btn-default" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></a></p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="col-md-4 col-md-offset-1 tableCol">
+                              <img src="${location.image}" />
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-md-6 tableCol">
+                              <div class="type-title">
+                                <h2>Materials
+                                <div class="btn-group sort" role="group" aria-label="Sort">
+                                  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span></button>
+                                  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sort-by-order" aria-hidden="true"></span></button>
+                                </div>
+                                </h2>
+                              </div>
+
+                              <table class="table table-hover">
+                                  <tr>
+                                      <th>Material Name</th>
+                                      <th>Qty</th>
+                                      <th width="110" class="ac">Edit</th>
+                                  </tr>
+
+                                  <tr th:each="material : ${materials}" th:unless="${materials} == null">
+                                      <td><h3>
+                                              <a th:href="'/' + ${username} + '/materials/' + ${material.uid}">
+                                                  <h3 th:text="${material.name}" th:unless="${material == null}"></a>
+                                          </h3></td>
+                                      <td th:text="${material.qty}"></td>
+                                      <td><a href="#"><button type="button"
+                                                  class="btn btn-default" aria-label="Left Align">
+                                                  <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                                              </button></a> <a href="#"><button type="button" class="btn btn-default"
+                                                  aria-label="Left Align">
+                                                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                              </button></a></td>
+                                  </tr>
+                              </table>
+                          </div>
+                          
+                          <div class="col-md-6 tableCol">
+                              <div class="type-title">
+                                <h2>Projects
+                                <div class="btn-group sort" role="group" aria-label="Sort">
+                                  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span></button>
+                                  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sort-by-order" aria-hidden="true"></span></button>
+                                </div>
+                                </h2>
+                              </div>
+
+                              <table class="table table-hover">
+                                  <tr>
+                                      <th>Project Name</th>
+                                      <th>Qty</th>
+                                      <th width="110" class="ac">Edit</th>
+                                  </tr>
+
+                                  <tr th:each="project : ${projects}" th:unless="${projects} == null">
+                                      <td><h3>
+                                              <a th:href="'/' + ${username} + '/projects/' + ${project.uid}">
+                                                  <h3 th:text="${project.name}" th:unless="${project == null}"></a>
+                                          </h3></td>
+                                      <td th:text="${project.qty}"></td>
+                                      <td><a href="#"><button type="button"
+                                                  class="btn btn-default" aria-label="Left Align">
+                                                  <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                                              </button></a> <a href="#"><button type="button" class="btn btn-default"
+                                                  aria-label="Left Align">
+                                                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                              </button></a></td>
+                                  </tr>
+                              </table>
+                          </div>
+                      </div>
+          </div>
+      </section>
+
+	<footer th:replace="secureTemplate :: footer"></footer>
+
+	<section th:replace="secureTemplate :: scripts"></section>
+
+</body>
 </html>

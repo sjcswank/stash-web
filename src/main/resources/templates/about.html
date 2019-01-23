@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="unsecureTemplate :: dochead">
+</head>
+
+ <body>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand em-text" href="signup.html">Stash</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="signup.html">Sign Up</a></li>
+              <li class="active"><a href="about.html">About</a></li>
+              <li><a href="login.html">Login</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+
+    <div class="jumbotron">
+      <div class="container">
+          <!-- title -->
+        <div class="row">
+          <div class="col-md-12">
+            <img class="title" th:src="@{/images/title.png}" />
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section>
+    <div class="contatiner content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1>An Inventory Solution as Unique as You</h1>
+
+                <p>Stash is an online inventory system designed for small at home
+                    maker's businesses and artists. A solution designed specifically
+                    for artists, crafter's, home mechanics, and the like, Stash
+                    provides three main solutions to home supply and product storage:</p>
+
+            </div>
+        </div>
+
+        <div class="row well">
+            <div class="details">
+            <div class="col-md-4">
+                <h2>Customize</h2>
+                <p>Want to know what you put in the second drawer
+                    of the blue dresser? Looking for the scraper for blue paint?
+                    Can't remember how many strands of pearls you have on hand?
+                    Stash allows you to customize all aspects of your items and
+                    locations- unique to your needs!</p>
+            </div>
+
+            <div class="col-md-4">
+                <h2>Plan</h2>
+                <p>If you're life's passion is taking unrelated materials and
+                    bringing them together into something new Stash can help.
+                    Standard inventory systems don't allow for tracking the
+                    unique relationships between a completed item and the materials
+                    used to make it. Stash does. Can't remeber what you used to
+                    create that bird house? Stash allows you to look up the project
+                    and see all the materials you needed last time- and check if you
+                    have enough to get started today!</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h2>Conquer</h2>
+                    <p>Stash provides a clean, easy to use webdesign that anyone
+                        can master. Standard inventory systems can be complex and
+                        convoluted- hard for the average user to learn. Weather
+                        you're a web savvy Etsy business, a just starting pre-teen,
+                        or an experienced home mechanic who's a bit computer shy,
+                        Stash provides an easy to understand solution to all your
+                        storage and making needs.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+<section>
+    <div class="container">
+            <!-- tagline -->
+        <div class="row">
+            <div class="col-md-4 stamp">
+                <img th:src="@{/images/stamp-image.png}" />
+            </div>
+
+            <div class="col-md-8 tagline">
+                <img th:src="@{/images/title-image.png}" />
+            </div>
+          <!-- end tagline -->
+          </div>
+        <!-- end container -->
+        </div>
+      <!-- end section -->
+  </section>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Copyright &copy; 2017, All Rights Reserved. SJCSWANK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

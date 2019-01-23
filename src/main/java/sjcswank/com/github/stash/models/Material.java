@@ -10,6 +10,7 @@ public class Material extends Storable {
 	
 
 	private Set<ProjectMaterial> projectMaterials;
+	Date modified = new Date();
 //	int inUse;
 //	int available;
 	

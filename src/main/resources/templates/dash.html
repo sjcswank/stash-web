@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="secureTemplate :: dochead">
+
+</head>
+
+
+<body>
+	<!-- dashboard navbar -->
+	<section th:fragment="dashNav">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<a class="navbar-brand" th:href="'/about.html'"><img
+					th:src="@{/images/nav-title.png}" /></a>
+
+				<ul class="nav navbar-nav navbar-left">
+					<li class="active nav-btn"><a th:href="'/' + ${username} + '/dashboard/'">
+						<img th:src="@{/images/home-icon.png}" /></a></li>
+					<li class="nav-btn"><a th:href="'/' + ${username} + '/materials/'">
+						<img th:src="@{/images/materials-icon.png}" /></a></li>
+					<li class="nav-btn"><a th:href="'/' + ${username} + '/projects/'">
+						<img th:src="@{/images/projects-icon.png}" /></a></li>
+					<li class="nav-btn"><a th:href="'/' + ${username} + '/locations/'">
+						<img th:src="@{/images/locations-icon.png}" /></a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li class="welcome">Welcome <strong th:text="${username}"></strong>!
+					</li>
+
+					<li class="btn-group nav-btn">
+						<button type="button" class="btn btn-default dropdown-toggle"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<img th:src="@{/images/profile-icon.png}" />
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">View Profile</a></li>
+							<li><a href="#">Edit Profile</a></li>
+							<li><a href="#">View Users</a></li>
+							<li><a href="#">Edit Users</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="/logout">Logout</a></li>
+						</ul>
+					</li>
+					<li class="nav-btn"><a href="settings.html"><img
+							th:src="@{/images/settings-icon.png}" /></a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+	</section>
+
+
+
+	<div id="breadcrumbs">
+		<ol class="breadcrumb">
+			<li class="active"><a th:href="'/' + ${username} + '/dashboard/'">Dashboard</a></li>
+		</ol>
+	</div>
+
+	<section>
+		<div class="containter">
+		
+			<!-- recent and sidebar row -->
+			<div class="row">
+			
+				<!-- recent tables column -->
+				<div class="col-md-6 col-md-offset-1">
+				
+					<!-- recent materials row -->
+					<div class="row">
+						<div class="col-md-12 tableCol">
+						
+							<!-- recent materials table title -->
+							<div class="type-title">
+								<h2>Recent Materials</h2>
+							</div>
+							
+							<!-- recent materials table -->
+							<section th:replace="secureTemplate :: materials"></section>
+						</div>
+					</div>
+					
+					<!-- recent projects row -->
+					<div class="row">
+						<div class="col-md-12 tableCol">
+						
+							<!-- recent projects table title -->
+							<div class="type-title">
+								<h2>Recent Projects</h2>
+							</div>
+							
+							<!-- recent projects table -->
+							<section th:replace="secureTemplate :: projects"></section>
+						</div>
+					</div>
+
+					<!-- recent locations row -->
+					<div class="row">
+						<div class="col-md-12 tableCol">
+						
+							<!-- recent locations table title -->
+							<div class="type-title">
+								<h2>Recent Locations</h2>
+							</div>
+							
+							<!-- recent locations table -->
+							<section th:replace="secureTemplate :: locations"></section>
+						</div>
+					</div>
+					
+				<!-- end recent tables column -->
+				</div>
+
+
+				<!-- sidebar column -->
+				<div class="col-md-3 sidebar">
+					<div class="type-title">
+						<h2>Management</h2>
+					</div>
+
+					<div class="sidebar-content">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default dropdown-toggle"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false">
+								Add New <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li class="dropdown-item"><a th:href="'/' + ${username} + '/newmaterial'">Material</a></li>
+								<li class="dropdown-item"><a th:href="'/' + ${username} + '/newproject'">Project</a></li>
+								<li class="dropdown-item"><a href="#">Location</a></li>
+							</ul>
+						</div>
+
+						<!-- Search -->
+						<div class="input-group">
+							<input type="text" class="form-control"
+								placeholder="Search Your Stash" /> <span
+								class="input-group-btn">
+								<button class="btn btn-default" type="button">
+									<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+								</button>
+							</span>
+						</div>
+					</div>
+					
+				<!-- end sidebar column -->
+				</div>
+
+			<!-- end recent and sidebar row -->
+			</div>
+			
+		<!-- end container -->
+		</div>
+	</section>
+
+
+	<!-- secure footer -->
+	<section th:replace="secureTemplate :: footer"></section>
+
+	<!-- bootstrap scripts -->
+	<section th:replace="secureTemplate :: scripts"></section>
+</body>
+</html>

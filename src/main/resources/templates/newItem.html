@@ -1,125 +1,102 @@
-
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="template :: dochead">
-</head>
-<body>
+<html lang="en">
+  <head th:replace="secureTemplate : dochead">
+  </head>
 
-<!-- Header -->
-<div id="header">
-	<div class="shell">
-		<!-- Logo + Top Nav -->
-		<div id="top">
-			<h1><a href="#">Stash</a></h1>
-			<div id="top-navigation">
-				Welcome <a href="#"><strong th:text="${username}"></strong></a>
-				<span>|</span>
-				<a href="#">Profile Settings</a>
-				<span>|</span>
-				<a href="/logout">Log out</a>
-			</div>
-		</div>
+  <body>
+      <!-- Dashboard Active Navigation -->
+      <section th:replace="dash : dashNav">
+      </section>
 
-		<!-- End Logo + Top Nav -->
-		<!-- Main Nav -->
-		<div id="navigation">
-			<ul>
-			    <li><a th:href="'/' + ${username} + '/dashboard/'" ><span>Dashboard</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/locations/'" class="active"><span>Locations</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/materials/'"><span>Materials</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/projects/'"><span>Projects</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/reports/'"><span>Reports</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/usermanagement/'"><span>User Management</span></a></li>
-			</ul>
-		</div>
-		<!-- End Main Nav -->
-</div>
-</div>
-<!-- End Header -->
-	
-	
-	<!-- Container -->
-<div id="container">
-	<div class="shell">
-		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			<a th:href="'/' + ${username} + '/locations'">Locations</a>
-			<span>&gt;</span>
-			New Item
-		</div>
-		<!-- End Small Nav -->
-
-		<br />
-		
-		
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
-			<!-- Content -->
-			<div id="content">
-
-				<!-- Box -->
-				<div class="box">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Add New Item</h2>
-					</div>
-					<!-- End Box Head -->
-					
-					<form action="" method="post">
-						
-						<!-- Form -->
-						<div class="form">
-								<p>
-									<span class="req">max 100 symbols</span>
-									<label>Item Name <span>(Required Field)</span></label>
-									<input type="text" class="field size1" name="itemName" th:value="${itemName}"></input>
-								</p>	
-								<p class="inline-field">
-									<label>Type</label>
-									<select class="field size3" name="type" id="type">
-  										<option value="material">Material</option>
-  										<option value="project">Project</option>
-									</select>
-									<label>Qty</label>
-									<input class="field size2" type="number" name="qty">
-									</input>
-									<label>Location</label>
-									<select class="field size3" name="location" id="location">
-  										<option th:text="${location.name}" th:value="${location.uid}"></option>
-									</select>
-								</p>							
-						</div>
-						<!-- End Form -->
-						
-						<!-- Form Buttons -->
-						<div class="buttons">
-							<button type="submit" class="button" name="save" value="add">Save and Add Items</button>
-							<button type="submit" class="button" name="save" value="Save">Save</button>
-						</div>
-						<!-- End Form Buttons -->
-					</form>
-				</div>
-				<!-- End Box -->
-
-			</div>
-
-
-	
-			</div>
-		<!-- Main -->
+      <div id="breadcrumbs">
+		<ol class="breadcrumb">
+			<li><a th:href="'/' + ${username} + '/dashboard/'">Dashboard</a></li>
+            <li class="active">New Item</li>
+		</ol>
 	</div>
-</div>
-<br style="clear:both" /> <!-- So dirty! -->
-<!-- End Container -->
-
-	<div th:replace="template :: footer"></div>
 
 
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 input-box">
 
-</body>
+                <!-- Box Title -->
+                <div class="type-title">
+                    <h2>New Item</h2>
+                </div>
+
+                <!-- Item type dropdown-menu -->
+                <section th:fragment="itemTypeInput">
+                <div class="form-group">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Item Type <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" name="type">
+                        <li value="material">Material</li>
+                        <li value="project">Project</li>
+                      </ul>
+                    </div>
+                </div>
+                </section>
+
+                <!-- Item name text input -->
+                <section th:fragment="itemNameInput">
+                <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Item Name" name="itemName" th:value="${itemName}" />
+                </div>
+                </section>
+
+                <!-- Quantity dropdown-menu -->
+                <section th:fragment="itemQtyInput">
+                <div class="form-group">
+                    <div class="input-group">
+                      <input type="number" class="form-control" aria-label="quantity" placeholder="Quantity" name="qty" />
+                      <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	Type <span class="caret"></span></button>
+                        <ul class="dropdown-menu" name="qtyType" id="qtyType">
+                          <li class="dropdown-item" value="string"><a href="#">String</a></li>
+                          <li class="dropdown-item" value="piece"><a href="#">Piece</a></li>
+                          <li class="dropdown-item" value="package"><a href="#">Package</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+                </section>
+
+                <!-- Location dropdown-menu -->
+                <section th:fragment="itemLocationInput">
+                <div class="form-group">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Location <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" name="location" id="location">
+                        <li th:value="${location.uid}" th:each="location : ${locations}" th:text="${location.name}"></li>
+                      </ul>
+                    </div>
+                </div>
+                </section>
+
+
+                <section th:replace="secureTemplate : saveCancel"></section>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+        <!-- secure footer -->
+        <section th:replace="secureTemplate :: footer"></section>
+
+        <!-- bootstrap scripts -->
+        <section th:replace="secureTemplate :: scripts"></section>
+    </body>
 </html>
-
-

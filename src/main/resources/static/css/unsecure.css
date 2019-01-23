@@ -1,0 +1,137 @@
+body {
+  padding-top: 50px;
+}
+
+.jumbotron{
+	background: url(../images/hands.png) no-repeat top center !important;
+	color:#fff;
+	height: 600px;
+	overflow:none;
+    margin-top: auto;
+    padding-top: 0px;
+}
+
+.jumbo-margin {
+    margin-bottom: 175px;
+}
+
+.title{
+    padding-top: 50px;
+    display: block;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.spacer{
+    padding-top: 350px;
+}
+
+.left{
+    padding-left: 100px;
+    padding-bottom: 20px;
+}
+
+.login-form {
+    margin-top: 200px;
+    margin-left: 24%;
+    margin-right: 23%;
+    background: rgba(105, 105, 105, 0.5);
+    padding:20px;
+    border-radius: 10px;
+}
+
+.stamp{
+    padding-left: 275px;
+    margin-bottom: 20px;
+}
+
+.tagline {
+    margin-bottom: 20px;
+    padding-left: 50px;
+}
+
+.sign-up-form{
+    background: rgba(105, 105, 105, 0.5);
+    padding:20px;
+    margin:70px 100px 0 0;
+    float:right;
+    position: relative;
+    border-radius: 10px;
+}
+
+.sign-up-title{
+    font-size: 20px;
+    text-align: center;
+    width: 200px;
+    background-color: #f98436;
+    padding: 10px 0 10px 0;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.sign-up-input{
+    padding: 10px 0 10px 0;
+}
+
+.sign-up-button{
+    float: right;
+    position: relative;
+    left: -37%; /* or right 50% */
+    text-align: left;
+}
+
+.content {
+    width: 70%;
+    margin-left: 15%;
+
+}
+
+.content h1 {
+    text-align: center;
+    color: #459AB0;
+    font-family: 'Tillana', cursive;
+}
+
+.content h2 {
+    text-align: center;
+    color: #f98436;
+}
+
+.content p {
+    text-align: justify;
+    margin: 0 10px 20px 10px;
+    padding: 10px;
+
+}
+
+.details {
+    background-color: #fff;
+    display: flex;
+    border-radius: 7px;
+}
+
+.details p {
+    align-items: stretch
+}
+
+footer{
+    background: #666;
+    color: #fff;
+    padding: 20px 0 15px 0;
+
+}
+
+footer li{
+    float: left;
+    padding: 0 10px 0 10px;
+    list-style: none;
+}
+
+footer a{
+    color:#fff;
+}
+
+footer p{
+    float: right;
+    padding-right: 70px;
+}

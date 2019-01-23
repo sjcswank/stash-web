@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+
+
+	
+	
+<!-- Container -->
+<div id="container">
+	<div class="shell">
+		
+		
+		<!-- Main -->
+		<div id="main">
+			<div class="cl">&nbsp;</div>
+			
+			<!-- Content -->
+			<div id="content">
+			
+		<!-- Small Nav -->
+		<div class="small-nav" th:inline="text" th:fragment="smallNav">
+			<a th:href="'/' + ${username} + '/' + ${type}" th:text="${catType} + 's'"></a>
+			<span>&gt;</span>
+			[[${item.name}]]s
+		</div>
+		<!-- End Small Nav -->
+				
+				
+				<!-- Box -->
+				<div class="box" th:fragment="itemInfo">				
+				
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2 class="left" th:text="${item.name}"></h2>
+
+					</div>
+				
+					<!-- End Box Head -->	
+					
+					<div class="table">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>Description</th>
+								<th th:text="${status}"></th>
+								<th width="110" class="ac">Edit</th>
+							</tr>
+							
+							<tr>
+								<!-- <td><h3 th:text="${item.description}"></h3></td>  -->
+								<td th:text="${item.decription}">Description Here.</td>
+								<td th:text="${statusValue}"></td>
+								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+					
+					
+					
+				
+				
+				
+				
+				
+				<!-- Box -->
+				<div class="box" th:fragment="materials">				
+				
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2 class="left">Materials</h2>
+
+					</div>
+				
+					<!-- End Box Head -->	
+					
+					<div class="table">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>Name</th>
+								<th th:text="${qtyType}"></th>
+								<th width="110" class="ac">Edit</th>
+							</tr>
+							
+							<tr th:each="material : ${materials}" th:unless="${materials == null}">
+								<td><h3><a th:href="'/' + ${username} + '/materials/' + ${material.uid}" th:text="${material.name}"></a></h3></td>
+								<td th:inline="text">[[${matQtyValue}]]</td>
+								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+							</tr>
+						</table>
+					</div>
+					
+					<!-- Paging -->
+					<div class="pagging">
+							<div class="left">Showing 1-12 of 44</div>
+							<div class="right">
+								<a href="#">Previous</a>
+								<a href="#">1</a>
+								<a href="#">2</a>
+								<a href="#">3</a>
+								<a href="#">4</a>
+								<a href="#">245</a>
+								<span>...</span>
+								<a href="#">Next</a>
+								<a href="#">View all</a>
+							</div>
+						</div>
+						<!-- End Paging -->
+					</div>
+					
+					
+					
+					
+				
+				
+				<!-- Box -->
+				<div class="box" th:fragment="projects">				
+				
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2 class="left">Projects</h2>
+
+					</div>
+				
+					<!-- End Box Head -->	
+					
+					<div class="table">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>Name</th>
+								<th th:text="${qtyType}"></th>
+								<th width="110" class="ac">Edit</th>
+							</tr>
+							
+							<tr th:each="project : ${projects}" th:unless="${projects == null}">
+								<td><h3><a th:href="'/' + ${username} + '/projects/' + ${project.uid}" th:text="${project.name}"></a></h3></td>
+								<td th:inline="text">[[${proQtyValue}]]</td>
+								<td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+							</tr>
+						</table>
+					</div>
+					
+					<!-- Paging -->
+					<div class="pagging">
+							<div class="left">Showing 1-12 of 44</div>
+							<div class="right">
+								<a href="#">Previous</a>
+								<a href="#">1</a>
+								<a href="#">2</a>
+								<a href="#">3</a>
+								<a href="#">4</a>
+								<a href="#">245</a>
+								<span>...</span>
+								<a href="#">Next</a>
+								<a href="#">View all</a>
+							</div>
+						</div>
+						<!-- End Paging -->
+					</div>
+					
+					
+					
+					
+			<!-- Sidebar -->
+			<div id="sidebar" th:fragment="sidebar">
+				
+				<!-- Box -->
+				<div class="box">
+					
+					<!-- Box Head -->
+					<div class="box-head">
+						<h2>Management</h2>
+					</div>
+					<!-- End Box Head-->
+					
+					<div class="box-content">
+						<span><a th:href="'/' + ${username} + '/newItem'" class="add-button" th:inline="text">Add new [[${catType}]]&nbsp;</a></span>
+						<div class="cl">&nbsp;</div>
+						<br />
+						<a th:href="'/' + ${username} +'/' + ${catType} + '/' + ${item.uid} + '/addItem'" class="add-button"><span>Add an Existing Item</span></a>
+						<div class="cl">&nbsp;</div>
+						
+						<p class="select-all"><input type="checkbox" class="checkbox" /><label>select all</label></p>
+						<p><a href="#">Delete Selected</a></p>
+						
+						<!-- Search -->
+						<div class="sort">
+						<form action="" method="post">
+							<label><span th:inline="text">Search All [[${catType}]]s</span></label>
+							<input type="text" class="field" name="search" />
+							<br />
+							<input type="hidden" name="hiddenAction" value="search" />
+							<input type="submit" class="button" value="search" />
+							</form>
+						</div>
+						<!-- End Search -->
+						
+					</div>
+				</div>
+				<!-- End Box -->
+			</div>
+			<!-- End Sidebar -->
+			
+			
+				
+					
+					
+			</div>	
+		</div>
+		<!-- Main -->
+	</div>
+</div>
+<br style="clear:both" /> <!-- So dirty! -->
+<!-- End Container -->
+
+	</body>
+</html>

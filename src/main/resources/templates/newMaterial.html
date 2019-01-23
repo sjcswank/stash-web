@@ -1,122 +1,63 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="template :: dochead">
-</head>
-<body>
+  <head th:replace="secureTemplate :: dochead">
+  </head>
 
-<!-- Header -->
-<div id="header">
-	<div class="shell">
-		<!-- Logo + Top Nav -->
-		<div id="top">
-			<h1><a href="#">Stash</a></h1>
-			<div id="top-navigation">
-				Welcome <a href="#"><strong th:text="${username}"></strong></a>
-				<span>|</span>
-				<a href="#">Profile Settings</a>
-				<span>|</span>
-				<a href="/logout">Log out</a>
-			</div>
-		</div>
+  <body>
+      <!-- Dashboard Active Navigation -->
+      <section th:replace="materials :: materialsNav">
+      </section>
 
-		<!-- End Logo + Top Nav -->
-		<!-- Main Nav -->
-		<div id="navigation">
-			<ul>
-			    <li><a th:href="'/' + ${username} + '/dashboard/'" ><span>Dashboard</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/locations/'"><span>Locations</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/materials/'" class="active"><span>Materials</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/projects/'"><span>Projects</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/reports/'"><span>Reports</span></a></li>
-			    <li><a th:href="'/' + ${username} + '/usermanagement/'"><span>User Management</span></a></li>
-			</ul>
-		</div>
-		<!-- End Main Nav -->
-</div>
-</div>
-<!-- End Header -->
-	
-	
-	<!-- Container -->
-<div id="container">
-	<div class="shell">
-		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			<a th:href="'/' + ${username} + '/materials'">Materials</a>
-			<span>&gt;</span>
-			New Material
-		</div>
-		<!-- End Small Nav -->
-
-		<br />
-		
-		
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
-			<!-- Content -->
-			<div id="content">
-
-				<!-- Box -->
-				<div class="box">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Add New Material</h2>
-					</div>
-					<!-- End Box Head -->
-					
-					<form action="" method="post">
-						
-						<!-- Form -->
-						<div class="form">
-								<p>
-									<span class="req">max 100 symbols</span>
-									<label>Material Name <span>(Required Field)</span></label>
-									<input type="text" class="field size1" name="itemName" th:value="${itemName}"></input>
-								</p>	
-								<p class="inline-field">
-									<label>Quantity <span>(Required Field)</span></label>
-									<input type="number" class="field size2" name="qty"></input>
-									<label>Quantity Wanted</label>
-									<input class="field size2" type="number" name="wanted">
-									</input>
-									<label>Location <span>(Required)</span></label>
-									<select class="field size3" name="location" id="location">
-										<option th:value="${location.uid}" th:each="location : ${locations}" th:text="${location.name}"></option>
-									</select>
-								</p>							
-						</div>
-						<!-- End Form -->
-						
-						<!-- Form Buttons -->
-						<div class="buttons">
-							<button type="submit" class="button" name="save" value="add">Save and Add Projects</button>
-							<button type="submit" class="button" name="save" value="Save">Save</button>
-						</div>
-						<!-- End Form Buttons -->
-					</form>
-				</div>
-				<!-- End Box -->
-
-			</div>
-
-
-	
-			</div>
-		<!-- Main -->
+      <div id="breadcrumbs">
+		<ol class="breadcrumb">
+			<li><a th:href="'/' + ${username} + '/materials/'">Materials</a></li>
+            <li class="active">New Material</li>
+		</ol>
 	</div>
-</div>
-<br style="clear:both" /> <!-- So dirty! -->
-<!-- End Container -->
-
-	<div th:replace="template :: footer"></div>
 
 
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 input-box">
 
-</body>
+				<div class="col-md-12 tableCol">
+	                <!-- Box Title -->
+	                <div class="type-title">
+	                    <h2>New Material</h2>
+	                </div>
+					<form method="post">
+		                <!-- Item name text input -->
+		                <section th:replace="newItem :: itemNameInput"></section>
+		
+		                <!-- Quantity dropdown-menu -->
+		                <section th:replace="newItem :: itemQtyInput"></section>
+		
+		                <!-- Location dropdown-menu -->
+		                <section th:replace="newItem :: itemLocationInput"></section>
+		
+		                <!-- Submit / Cancel buttons -->
+		                <div class="submit-buttons" aria-label="...">
+					      <a th:href="'/' + ${username} + '/materials/'"><button type="button" 
+					      		class="btn btn-default btn-cancel" name="cancel" value="cancel">Cancel</button></a>
+					      <button type="submit" class="btn btn-default btn-save save-button" name="save" value="save">Save</button>
+					    </div>
+		            </form>
+	            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+        <!-- secure footer -->
+        <section th:replace="secureTemplate :: footer"></section>
+
+        <!-- bootstrap scripts -->
+        <section th:replace="secureTemplate :: scripts"></section>
+    </body>
 </html>
-
-

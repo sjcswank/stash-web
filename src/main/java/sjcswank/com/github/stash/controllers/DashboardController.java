@@ -53,7 +53,7 @@ public class DashboardController extends AbstractController {
 		model.addAttribute("locations", locations);
 		model.addAttribute("username", owner.getUsername());
 		
-		return "dashboard";
+		return "dash";
 	}
 	
 	@RequestMapping(value = "{username}/materials", method = RequestMethod.GET)

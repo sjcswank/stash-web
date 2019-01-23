@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head th:fragment="dochead">
+<meta http-equiv="X-UA-Compatible" content="IE=edge charset=utf-8" />
+<title>Stash</title>
+<!-- Bootstrap core CSS -->
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link href="../../assets/css/ie10-viewport-bug-workaround.css"
+	rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link th:href="@{/css/secure.css}" rel="stylesheet" type="text/css"
+	media="all" />
+<link
+	href="https://fonts.googleapis.com/css?family=Homemade+Apple|Tillana"
+	rel="stylesheet" />
+
+</head>
+
+<body>
+
+	<!-- materials table-->
+	<section th:fragment="materials">
+		<table class="table table-hover">
+			<tr>
+				<th width="13"><input type="checkbox" class="checkbox" /></th>
+				<th>Name</th>
+				<th>Qty</th>
+				<th>Modified</th>
+				<th width="110" class="ac">Edit</th>
+			</tr>
+	
+			<tr th:each="material : ${materials}" th:unless="${materials} == null">
+				<td><input type="checkbox" class="checkbox" /></td>
+				<td><h3>
+						<a th:href="'/' + ${username} + '/materials/' + ${material.uid}"
+							th:text="${material.name}"></a>
+					</h3></td>
+				<td th:text="${material.qty}"></td>
+				<td th:test="${#dates.format(material.modified, 'yyyy-MM-dd')}"></td>
+				<td><a href="#"><button type="button"
+							class="btn btn-default" aria-label="Left Align">
+							<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+						</button></a> <a href="#"><button type="button" class="btn btn-default"
+							aria-label="Left Align">
+							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+						</button></a></td>
+			</tr>
+		</table>
+	</section>
+
+	<!-- projects table-->
+	<section th:fragment="projects">
+	<table class="table table-hover">
+		<tr>
+			<th width="13"><input type="checkbox" class="checkbox" /></th>
+			<th>Name</th>
+			<th>Qty</th>
+			<th>Modified</th>
+			<th width="110" class="ac">Edit</th>
+		</tr>
+
+		<tr th:each="project : ${projects}" th:unless="${projects} == null">
+			<td><input type="checkbox" class="checkbox" /></td>
+			<td><h3>
+					<a th:href="'/' + ${username} + '/projects/' + ${project.uid}"
+						th:text="${project.name}"></a>
+				</h3></td>
+			<td th:text="${project.qty}"></td>
+			<td th:test="${#dates.format(project.modified, 'yyyy-MM-dd')}"></td>
+			<td><a href="#"><button type="button"
+						class="btn btn-default" aria-label="Left Align">
+						<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+					</button></a> <a href="#"><button type="button" class="btn btn-default"
+						aria-label="Left Align">
+						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+					</button></a></td>
+		</tr>
+	</table>
+	</section>
+
+	<!-- locations table-->
+	<section th:fragment="locations">
+	<table class="table table-hover">
+		<tr>
+			<th width="13"><input type="checkbox" class="checkbox" /></th>
+			<th>Name</th>
+			<th>Is Full</th>
+			<th>Modified</th>
+			<th width="110" class="ac">Edit</th>
+		</tr>
+
+		<tr th:each="location : ${locations}" th:unless="${locations} == null">
+			<td><input type="checkbox" class="checkbox" /></td>
+			<td><a
+				th:href="'/' + ${username} + '/locations/' + ${location.uid}"
+				th:text="${location.name}"></a></td>
+			<td th:text="${location.isFull}"></td>
+			<td th:test="${#dates.format(location.modified, 'yyyy-MM-dd')}"></td>
+			<td><a href="#"><button type="button"
+						class="btn btn-default" aria-label="Left Align">
+						<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+					</button></a> <a href="#"><button type="button" class="btn btn-default"
+						aria-label="Left Align">
+						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+					</button></a></td>
+		</tr>
+	</table>
+	</section>
+
+	<!-- sort -->
+	<section th:fragment="sort">
+	<div class="sort">
+		<div class="btn-group" role="group" aria-label="...">
+			<button type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-sort-by-alphabet"
+					aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-sort-by-alphabet-alt"
+					aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-sort-by-order" aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-sort-by-order-alt"
+					aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-sort-by-attributes"
+					aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-sort-by-attributes-alt"
+					aria-hidden="true"></span>
+			</button>
+		</div>
+	</div>
+	</section>
+	
+	<!-- Submit / Cancel buttons -->
+    <section th:fragment="saveCancel">
+    <div class=" submit-buttons" aria-label="...">
+      <button type="submit" class="btn btn-default btn-cancel" name="cancel" value="cancel">Cancel</button>
+      <button type="submit" class="btn btn-default btn-save" name="save" value="save">Save</button>
+    </div>
+    </section>
+    
+    <section th:fragment="isFullCheckbox">
+	    <div class="checkbox">
+		    <label>
+		      <input type="checkbox" name="isFull" id="isFull"> This Location is Full</input>
+		    </label>
+		  </div>
+	 </section>
+
+	<!-- footer -->
+	<footer th:fragment="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<ul>
+					<li><a href="about.html">About</a></li>
+					<li><a href="faq.html">Help</a></li>
+					<li><a href="login.html">Logout</a></li>
+				</ul>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<p>Copyright &copy; 2017, All Rights Reserved. SJCSWANK</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+
+	<!-- scripts -->
+	<section th:fragment="scripts"> <!-- Bootstrap core JavaScript================================================== -->
+	<!-- Placed at the end of the document so the pages load faster --> <script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script th:inline="javascript">
+			/*<![CDATA[*/
+    			window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+			/*]]>*/
+    	</script> <script th:src="@{/js/bootstrap.min.js}"></script> 
+    </section>
+
+</body>
+</html>

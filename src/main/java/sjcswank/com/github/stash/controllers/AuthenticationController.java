@@ -25,6 +25,11 @@ public class AuthenticationController extends AbstractController {
 	@Autowired 
 	private LocationDao LocationDao;
 	
+	@RequestMapping(value = "/about", method = RequestMethod.GET)
+	public String aboutView() {
+		return "about";
+	}
+	
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String signupForm() {
 		return "signup";
@@ -38,6 +43,7 @@ public class AuthenticationController extends AbstractController {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String verify = request.getParameter("verify");
+		String email = request.getParameter("email");
 		
 		if (!User.isValidUsername(username)) {
 			model.addAttribute("username_error", "Invalid Username");

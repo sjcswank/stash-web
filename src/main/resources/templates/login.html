@@ -1,97 +1,105 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="template :: dochead">
+<head th:replace="unsecureTemplate :: dochead">
 </head>
+
+<!-- Bootstrap navbar -->
 <body>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand em-text" href="signup.html">Stash</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="about.html">About</a></li>
+              <li class="active"><a href="login.html">Login</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
 
-<!-- Header -->
-<div id="header">
-	<div class="shell">
-		<!-- Logo + Top Nav -->
-		<div id="top">
-			<h1><a href="#">Stash</a></h1>
-			<div id="top-navigation">
-				<a href="/login">Welcome</a>
-				<span>|</span>
-				<a href="/signup">Sign Up</a>
-			</div>
-		</div>
-
-		<!-- End Logo + Top Nav -->
-		
+<!--  Jumbotron- title and login form -->
+    <div class="jumbotron">
+      <div class="container">
+          <!-- title -->
+        <div class="row">
+          <div class="col-md-12">
+            <img class="title" th:src="@{/images/title.png}" />
+          </div>
+        </div>
+        <!-- login form -->
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-inline login-form" action="" method="post">
+                  <div class="form-group">
+                    <label class="sr-only" for="username" >Username</label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><img th:src="@{/images/username-image.png}" /></div>
+                      <input name="username" type="text" class="form-control" id="username" placeholder="Username" th:value="${username}" />
+                    </div>
+                    <label class="sr-only" for="password">Password</label>
+                    <div class="input-group">
+                      <div class="input-group-addon"><img src="/images/lock-image.png" /></div>
+                      <input name="password" type="password" class="form-control" id="password" placeholder="Password" />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary" value="Login">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-<!-- End Header -->
 
-	<!-- Container -->
-<div id="container">
-	<div class="shell">
-		
-		<!-- Small Nav -->
-		<div class="small-nav">
-			<a href="#">Login</a>
-			<span>&gt;</span>
-			Login
-		</div>
-		<!-- End Small Nav -->
+    <div class="container">
+            <!-- tagline -->
+        <div class="row">
+            <div class="col-md-4 stamp">
+                <img src="../images/stamp-image.png" />
+            </div>
 
-		<br />
-		
-		
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
-			<!-- Content -->
-			<div id="content">
-
-				<!-- Box -->
-				<div class="box">
-					<!-- Box Head -->
-					<div class="box-head">
-						<h2>Login</h2>
-					</div>
-					<!-- End Box Head -->
-					
-					<form action="" method="post">
-						
-						<!-- Form -->
-						<div class="form">
-								<p>
-									<label>Username</label>
-									<input type="text" class="field size1" name="username" th:value="${username}"></input>
-								</p>	
-								<p class="inline-field">
-									<label>Password</label>
-									<input type="password" class="field size1" name="password"></input>
-								</p>							
-						</div>
-						<!-- End Form -->
-						
-						<!-- Form Buttons -->
-						<div class="buttons">
-							<input type="submit" class="button" value="submit" />
-						</div>
-						<!-- End Form Buttons -->
-					</form>
-					 <p>Don't have an account? <a href="/signup">Create one!</a></p>
-				</div>
-				<!-- End Box -->
-
-			</div>
-
-
-	
-			</div>
-		<!-- Main -->
-	</div>
-</div>
-<br style="clear:both" /> <!-- So dirty! -->
-<!-- End Container -->
-
-	<div th:replace="template :: footer"></div>
+            <div class="col-md-8 tagline">
+                <img src="images/title-image.png" />
+            </div>
+          <!-- end tagline -->
+          </div>
+        <!-- end container -->
+        </div>
+      <!-- end section -->
 
 
 
-</body>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Copyright &copy; 2017, All Rights Reserved. SJCSWANK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
