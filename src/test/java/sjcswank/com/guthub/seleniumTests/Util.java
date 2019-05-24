@@ -6,8 +6,7 @@ import jxl.Sheet;
 import jxl.Workbook;
 
 public class Util {
-	public static final int WAIT_TIME = 30; // Delay time to wait the website
-	// launch completely
+	public static final int WAIT_TIME = 10; // Delay time to wait for the website to launch completely
 	public static final String BASE_URL = "http://localhost:8080";
 
 	// Valid account for login
@@ -17,9 +16,21 @@ public class Util {
 	public static final String VALID = "valid";
 	public static final String INVALID = "invalid";
 
-	// Expected output
+	// Expected Login output
 	public static final String EXPECT_WELCOME = "Welcome tester1!";
-	public static final String EXPECTED_LOGIN_ACTIVE = "Login";
+	public static final String EXPECTED_LOGIN_PASS_ERROR = "Incorrect Password";
+	public static final String EXPECTED_LOGIN_USER_ERROR = "Incorrect Username";
+	public static final String EXPECTED_LOGIN_ENTRY_ERROR = "All Values Required";
+	
+	
+	//Expected Dashboard Titles
+	public static final String EXPECT_DASH_MATERIALS_TITLE = "Recent Materials";
+	public static final String EXPECT_DASH_PROJECTS_TITLE = "Recent Projects";
+	public static final String EXPECT_DASH_LOCATIONS_TITLE = "Recent Locations";
+	
+	
+	
+	
 
 	/* You can change the Path of FireFox base on your environment here */
 	public static final String FIREFOX_PATH = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";

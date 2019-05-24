@@ -60,11 +60,20 @@ public class LoginTests {
 		
 		try{
 			actualWelcome = driver.findElement(By.className("welcome")).getText();
-			assertEquals(actualWelcome, Util.EXPECT_WELCOME);
+			assertEquals(Util.EXPECT_WELCOME, actualWelcome);
 		}
 		catch(Exception e){
-			actualActive = driver.findElement(By.className("active")).getText();
-			assertEquals(actualActive, Util.EXPECTED_LOGIN_ACTIVE);
+			actualActive = driver.findElement(By.id("login-error")).getText();
+			if(password.equals("") || username.equals("")) {
+				assertEquals(Util.EXPECTED_LOGIN_ENTRY_ERROR, actualActive);
+			}
+			else if(username.equals("invalid")) {
+				assertEquals(Util.EXPECTED_LOGIN_USER_ERROR, actualActive);
+			}
+			else if(password.equals("invalid")) {
+				assertEquals(Util.EXPECTED_LOGIN_PASS_ERROR, actualActive);
+			}
+			
 		}
 		
 	}

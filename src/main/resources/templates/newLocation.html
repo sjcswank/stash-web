@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-  <head th:replace="secureTemplate : dochead">
+  <head th:replace="secureTemplate :: dochead">
   </head>
 
   <body>
       <!-- Dashboard Active Navigation -->
-      <section th:replace="locations : locationsNav">
+      <section th:replace="locations :: locationsNav">
       </section>
 
       <div id="breadcrumbs">
@@ -20,20 +20,22 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 input-box">
+            	<div class="col-md-12 tableCol">
 
                 <!-- Box Title -->
-                <div class="type-title">
-                    <h2>New Location</h2>
-                </div>
-
-                <!-- Item name text input -->
-                <section th:replace="newItem : itemNameInput"></section>
-                
-                <section th:replace="secureTemplate : isFullCheckbox"></section>
-
-                <!-- Submit / Cancel buttons -->
-                <section th:replace="secureTemplate : saveCancel"></section>
-
+	                <div class="type-title">
+	                    <h2>New Location</h2>
+	                </div>
+					<form method="post">
+		                <!-- Item name text input -->
+		                <section th:replace="newItem :: itemNameInput"></section>
+		                
+		                <section th:replace="secureTemplate :: isFullCheckbox"></section>
+		
+		                <!-- Submit / Cancel buttons -->
+		                <section th:replace="secureTemplate :: saveCancel"></section>
+	                </form>
+				</div>
             </div>
         </div>
     </div>

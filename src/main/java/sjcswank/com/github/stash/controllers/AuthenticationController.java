@@ -45,23 +45,23 @@ public class AuthenticationController extends AbstractController {
 		String verify = request.getParameter("verify");
 		String email = request.getParameter("email");
 		
-		if (!User.isValidUsername(username)) {
-			model.addAttribute("username_error", "Invalid Username");
+		if (!User.isValidUsername(username) || username.equals("")) {
+			model.addAttribute("error", "Invalid Username");
 			return "signup";
 		}
 		
 		else if (!User.isValidPassword(password)) {
-			model.addAttribute("password_error", "Invalid Password");
+			model.addAttribute("error", "Invalid Password");
 			return "signup";
 		}
 		
 		else if (!password.equals(verify)) {
-			model.addAttribute("verify_error", "Passwords Do Not Match");
+			model.addAttribute("error", "Passwords Do Not Match");
 			return "signup";
 		}
 		
 		else if(UserDao.findByUsername(username) != null){
-			model.addAttribute("username_error", "Username Already In Use");
+			model.addAttribute("error", "Username Already In Use");
 		}
 		else {
 		//create user
