@@ -21,7 +21,7 @@ public class LoginTests {
 	
 	@DataProvider(name = "LoginTest")
 	public Object[][] testData() throws Exception {
-		return Util.getDataFromExcel(Util.FILE_PATH, Util.SHEET_NAME,
+		return Util.getDataFromExcel(Util.LOGIN_FILE_PATH, Util.SHEET_NAME,
 				Util.TABLE_NAME);
 	} 
 	
@@ -38,7 +38,7 @@ public class LoginTests {
 	}
 	
 	@Test(dataProvider = "LoginTest")
-	public void testCase01(String username, String password){
+	public void testCase01(String username, String password) throws Exception{
 		
 		String actualWelcome;
 		String actualActive;
@@ -57,6 +57,8 @@ public class LoginTests {
 		driver.findElement(By.id("password")).clear();
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.className("btn")).click();
+		
+		Util.takeSnapShot(driver, Util.SCREENSHOTS_LOCATION + "\\login-" + username+ "-" + password + ".png");
 		
 		try{
 			actualWelcome = driver.findElement(By.className("welcome")).getText();

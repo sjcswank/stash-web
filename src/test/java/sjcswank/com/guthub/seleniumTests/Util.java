@@ -1,6 +1,12 @@
 package sjcswank.com.guthub.seleniumTests;
 
 import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -28,17 +34,21 @@ public class Util {
 	public static final String EXPECT_DASH_PROJECTS_TITLE = "Recent Projects";
 	public static final String EXPECT_DASH_LOCATIONS_TITLE = "Recent Locations";
 	
-	
+	//screenshot base location
+	public static final String SCREENSHOTS_LOCATION = "src\\test\\java\\screenshots";
 	
 	
 
 	/* You can change the Path of FireFox base on your environment here */
 	public static final String FIREFOX_PATH = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
 
-	// You can change the information of your data file here
-	public static final String FILE_PATH = "src/test/java/testData/loginData.xls"; // File Path
+	// Data
+	public static final String LOGIN_FILE_PATH = "src/test/java/testData/loginData.xls"; // LOGIN File Path
+	public static final String RECENT_TITLES_FILE_PATH = "src/test/java/testData/recentItemsData.xls"; // DASH TITLES File Path
+	public static final String NEW_ITEM_DROPDOWN_FILE_PATH = "src/test/java/testData/newItemDropdownData.xls"; // DASH DROPDOWN File Path
 	public static final String SHEET_NAME = "Data"; // Sheet name
 	public static final String TABLE_NAME = "testData"; // Name of data table
+	
 	
 	public static String[][] getDataFromExcel(String xlFilePath,
 			String sheetName, String tableName) throws Exception {
@@ -81,6 +91,20 @@ public class Util {
 		}
 
 		return (tabArray);
+	}
+	
+	public static void takeSnapShot(WebDriver webdriver, String fileWithPath) throws Exception{
+		//convert web driver to TakeScreenShot
+		TakesScreenshot screenshot = ((TakesScreenshot)webdriver);
+		
+		//call getScreenshotAs to create img file
+		File SrcFile = screenshot.getScreenshotAs(OutputType.FILE);
+		
+		//move img file to new dest
+		File DestFile = new File(fileWithPath);
+		
+		//Copy File at dest
+		FileUtils.copyFile(SrcFile, DestFile);
 	}
 
 }

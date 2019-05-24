@@ -1,21 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="7" passed="7">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15048" started-at="2019-05-24T19:20:52Z" finished-at="2019-05-24T19:21:07Z">
+  <suite name="Default suite" duration-ms="102876" started-at="2019-05-24T22:52:00Z" finished-at="2019-05-24T22:53:43Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="15048" started-at="2019-05-24T19:20:52Z" finished-at="2019-05-24T19:21:07Z">
+    <test name="Default test" duration-ms="102876" started-at="2019-05-24T22:52:00Z" finished-at="2019-05-24T22:53:43Z">
       <class name="sjcswank.com.guthub.seleniumTests.DashTests">
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@6c3708b3]" name="setup" is-config="true" duration-ms="9861" started-at="2019-05-24T14:20:52Z" finished-at="2019-05-24T14:21:02Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="setup" is-config="true" duration-ms="10370" started-at="2019-05-24T17:52:00Z" finished-at="2019-05-24T17:52:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="testCase01()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@6c3708b3]" name="testCase01" duration-ms="1628" started-at="2019-05-24T14:21:02Z" finished-at="2019-05-24T14:21:03Z">
+        <test-method status="PASS" signature="ImgActive()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="ImgActive" duration-ms="281" started-at="2019-05-24T17:52:10Z" finished-at="2019-05-24T17:52:10Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testCase01 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@6c3708b3]" name="tearDown" is-config="true" duration-ms="3540" started-at="2019-05-24T14:21:03Z" finished-at="2019-05-24T14:21:07Z">
+        </test-method> <!-- ImgActive -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3655" started-at="2019-05-24T17:52:10Z" finished-at="2019-05-24T17:52:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="setup" is-config="true" duration-ms="10108" started-at="2019-05-24T17:52:14Z" finished-at="2019-05-24T17:52:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="NewItemDropdown(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="NewItemDropdown" duration-ms="1711" started-at="2019-05-24T17:52:24Z" data-provider="NewItemDropdownTest" finished-at="2019-05-24T17:52:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Material]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[New Material]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NewItemDropdown -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3024" started-at="2019-05-24T17:52:26Z" finished-at="2019-05-24T17:52:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="setup" is-config="true" duration-ms="10744" started-at="2019-05-24T17:52:29Z" finished-at="2019-05-24T17:52:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="NewItemDropdown(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="NewItemDropdown" duration-ms="1707" started-at="2019-05-24T17:52:40Z" data-provider="NewItemDropdownTest" finished-at="2019-05-24T17:52:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Project]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[New Project]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NewItemDropdown -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3298" started-at="2019-05-24T17:52:42Z" finished-at="2019-05-24T17:52:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="setup" is-config="true" duration-ms="10061" started-at="2019-05-24T17:52:45Z" finished-at="2019-05-24T17:52:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="NewItemDropdown(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="NewItemDropdown" duration-ms="1376" started-at="2019-05-24T17:52:55Z" data-provider="NewItemDropdownTest" finished-at="2019-05-24T17:52:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Location]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[New Location]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NewItemDropdown -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3399" started-at="2019-05-24T17:52:56Z" finished-at="2019-05-24T17:53:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="setup" is-config="true" duration-ms="10101" started-at="2019-05-24T17:53:00Z" finished-at="2019-05-24T17:53:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="RecentTitles(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="RecentTitles" duration-ms="253" started-at="2019-05-24T17:53:10Z" data-provider="RecentTitlesTest" finished-at="2019-05-24T17:53:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Recent Materials]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RecentTitles -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2916" started-at="2019-05-24T17:53:10Z" finished-at="2019-05-24T17:53:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="setup" is-config="true" duration-ms="9805" started-at="2019-05-24T17:53:13Z" finished-at="2019-05-24T17:53:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="RecentTitles(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="RecentTitles" duration-ms="433" started-at="2019-05-24T17:53:23Z" data-provider="RecentTitlesTest" finished-at="2019-05-24T17:53:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Recent Projects]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RecentTitles -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3557" started-at="2019-05-24T17:53:23Z" finished-at="2019-05-24T17:53:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="setup" is-config="true" duration-ms="11046" started-at="2019-05-24T17:53:27Z" finished-at="2019-05-24T17:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="RecentTitles(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="RecentTitles" duration-ms="255" started-at="2019-05-24T17:53:38Z" data-provider="RecentTitlesTest" finished-at="2019-05-24T17:53:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Recent Locations]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RecentTitles -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.DashTests@185d8b6]" name="tearDown" is-config="true" duration-ms="4434" started-at="2019-05-24T17:53:38Z" finished-at="2019-05-24T17:53:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
