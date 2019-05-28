@@ -29,10 +29,10 @@
 							th:href="'/' + ${username} + '/materials/'"> <img
 								th:src="@{/images/materials-icon.png}" /></a></li>
 						<li class="nav-btn"><a
-							th:href="'/' + ${username} + 'projects'"> <img
+							th:href="'/' + ${username} + '/projects/'"> <img
 								th:src="@{/images/projects-icon.png}" /></a></li>
 						<li class="active nav-btn"><a
-							th:href="'/' + ${username} + 'locations'"> <img
+							th:href="'/' + ${username} + '/locations/'"> <img
 								th:src="@{/images/locations-icon.png}" /></a></li>
 					</ul>
 
@@ -99,8 +99,8 @@
 
 					<div class="sidebar-content">
 						<div class="btn-group" role="group" aria-label="...">
-							<button type="button" class="btn btn-default">Add New
-								Location</button>
+							<a th:href="'/' + ${username} + '/newlocation'"><button type="button" class="btn btn-default">Add New
+								Location</button></a>
 						</div>
 
 						<!-- Search -->

@@ -1,11 +1,14 @@
 package sjcswank.com.guthub.seleniumTests;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -33,6 +36,18 @@ public class Util {
 	public static final String EXPECT_DASH_MATERIALS_TITLE = "Recent Materials";
 	public static final String EXPECT_DASH_PROJECTS_TITLE = "Recent Projects";
 	public static final String EXPECT_DASH_LOCATIONS_TITLE = "Recent Locations";
+	
+	//Materials Page
+	public static final String EXPECTED_MATS_TITLE = "All Materials";
+	public static final String EXPECTED_NEW_MATS_TITLE = "New Material";
+	
+	//Projects Page
+	public static final String EXPECTED_PROJ_TITLE = "All Projects";
+	public static final String EXPECTED_NEW_PROJ_TITLE = "New Project";
+	
+	//Locations Page
+	public static final String EXPECTED_LOCS_TITLE = "All Locations";
+	public static final String EXPECTED_NEW_LOCS_TITLE = "New Location";
 	
 	//screenshot base location
 	public static final String SCREENSHOTS_LOCATION = "src\\test\\java\\screenshots";
@@ -105,6 +120,17 @@ public class Util {
 		
 		//Copy File at dest
 		FileUtils.copyFile(SrcFile, DestFile);
+	}
+	
+	public static void login(WebDriver driver) throws Exception {
+		driver.get(Util.BASE_URL + "/login/");
+		
+		//login
+		driver.findElement(By.id("username")).clear();
+		driver.findElement(By.id("username")).sendKeys(Util.USER_NAME);
+		driver.findElement(By.id("password")).clear();
+		driver.findElement(By.id("password")).sendKeys(Util.PASSWD);
+		driver.findElement(By.className("btn")).click();
 	}
 
 }

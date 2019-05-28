@@ -24,13 +24,13 @@
 					th:src="@{/images/nav-title.png}" /></a>
 
 				<ul class="nav navbar-nav navbar-left">
-					<li class="active nav-btn"><a th:href="'/' + ${username} + '/dashboard/'">
+					<li id="dashLink" class="active nav-btn"><a th:href="'/' + ${username} + '/dashboard/'">
 						<img th:src="@{/images/home-icon.png}" /></a></li>
-					<li class="nav-btn"><a th:href="'/' + ${username} + '/materials/'">
+					<li id="matsLink" class="nav-btn"><a th:href="'/' + ${username} + '/materials/'">
 						<img th:src="@{/images/materials-icon.png}" /></a></li>
-					<li class="nav-btn"><a th:href="'/' + ${username} + '/projects/'">
+					<li id="projsLink" class="nav-btn"><a th:href="'/' + ${username} + '/projects/'">
 						<img th:src="@{/images/projects-icon.png}" /></a></li>
-					<li class="nav-btn"><a th:href="'/' + ${username} + '/locations/'">
+					<li id="locsLink" class="nav-btn"><a th:href="'/' + ${username} + '/locations/'">
 						<img th:src="@{/images/locations-icon.png}" /></a></li>
 				</ul>
 

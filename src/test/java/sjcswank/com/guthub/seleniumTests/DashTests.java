@@ -44,16 +44,11 @@ public class DashTests {
 		.implicitlyWait(Util.WAIT_TIME, TimeUnit.SECONDS);
 		driver.get(baseUrl + "/login/");
 		
-		//login
-		driver.findElement(By.id("username")).clear();
-		driver.findElement(By.id("username")).sendKeys(Util.USER_NAME);
-		driver.findElement(By.id("password")).clear();
-		driver.findElement(By.id("password")).sendKeys(Util.PASSWD);
-		driver.findElement(By.className("btn")).click();
+		Util.login(driver);
 	}
 	
 	@Test
-	public void ImgActive() throws Exception {
+	public void imgActive() throws Exception {
 		WebElement img = driver.findElement(By.cssSelector("#navbar > ul.nav.navbar-nav.navbar-left > li.active.nav-btn > a > img"));
 		String src = img.getAttribute("src");
 		
@@ -63,7 +58,7 @@ public class DashTests {
 	}
 	
 	@Test(dataProvider="RecentTitlesTest")
-	public void RecentTitles(String selector, String expectedTitle) throws Exception {
+	public void recentTitles(String selector, String expectedTitle) throws Exception {
 		String actualTitle = driver.findElement(By.cssSelector(".row:nth-child(" + selector + ") > .col-md-12 h2")).getText();
 		Util.takeSnapShot(driver, Util.SCREENSHOTS_LOCATION + "\\dash-recent-" + expectedTitle + ".png");
 		assertEquals(expectedTitle, actualTitle);
@@ -71,7 +66,7 @@ public class DashTests {
 	}
 	
 	@Test(dataProvider="NewItemDropdownTest")
-	public void NewItemDropdown(String type, String expectedTitle) throws Exception {
+	public void newItemDropdown(String type, String expectedTitle) throws Exception {
 		driver.findElement(By.xpath("//button[contains(.,'Add New ')]")).click();
 		driver.findElement(By.linkText(type)).click();
 		String actualTitle = driver.findElement(By.cssSelector("h2")).getText();
