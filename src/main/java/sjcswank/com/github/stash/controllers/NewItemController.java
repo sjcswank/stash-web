@@ -45,6 +45,11 @@ public class NewItemController extends AbstractController {
 			return "newMaterial";
 		}
 		
+		@RequestMapping(value= "{username}/newmaterial", params = "cancel", method= RequestMethod.POST)
+		public String cancelNewMaterial(HttpServletRequest request){
+			return "redirect:/{username}/materials.html";
+		}
+				
 		@RequestMapping(value = "{username}/newmaterial", method = RequestMethod.POST)
 		public String newMaterial(HttpServletRequest request, Model model, @PathVariable String username, RedirectAttributes redirectAttrs) {
 
@@ -111,6 +116,11 @@ public class NewItemController extends AbstractController {
 			return "newProject";
 		}
 		
+		@RequestMapping(value= "{username}/newproject", params = "cancel", method= RequestMethod.POST)
+		public String cancelNewProject(HttpServletRequest request){
+			return "redirect:/{username}/projects.html";
+		}
+		
 		@RequestMapping(value = "{username}/newproject", method = RequestMethod.POST)
 		public String newProject(HttpServletRequest request, Model model, @PathVariable String username, RedirectAttributes redirectAttrs) {
 
@@ -172,6 +182,11 @@ public class NewItemController extends AbstractController {
 			return "newLocation";
 		}
 		
+		@RequestMapping(value= "{username}/newlocation", params = "cancel", method= RequestMethod.POST)
+		public String cancelNewLocation(HttpServletRequest request){
+			return "redirect:/{username}/locations.html";
+		}
+		
 		@RequestMapping(value = "{username}/newlocation", method = RequestMethod.POST)
 		public String newLocation(HttpServletRequest request, Model model, @PathVariable String username, RedirectAttributes redirectAttrs) {
 			
@@ -184,7 +199,7 @@ public class NewItemController extends AbstractController {
 			String save = request.getParameter("save");
 			
 			if (itemName == null || itemName == "" ){
-				error = "Location Name is Required!";
+				error = "Location Name is Required";
 				model.addAttribute("error", error);
 				return "newLocation";
 			}

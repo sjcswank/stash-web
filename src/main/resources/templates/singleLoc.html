@@ -26,11 +26,12 @@
                             <div class="btn-group sort" role="group" aria-label="Sort">
                                 <a href="#"><button type="button" class="btn btn-default" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-                                </button></a> <a href="#">
+                                </button></a>
                                 <a href="#"><button type="button" class="btn btn-default" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                </button></a> </small></h2>
+                                </button></a> 
                             </div>
+                         </small></h2>
                       </div>
 
                       <div class="row">
@@ -40,7 +41,8 @@
                                   <div class="col-md-12">
                                       <div>
                                           <h4>Description</h4>
-                                          <p th:text="${location.description}"></p>
+                                          <!-- <p th:text="${location.description}"></p> -->
+                                          <p>Description will go here</p>
                                       </div>
                                   </div>
                               </div>
@@ -48,7 +50,7 @@
                               <div class="row">
                                   <div class="col-md-12">
                                       <div>
-                                          <p><strong>Is Full:</strong><span  th:text="${location.isFull()}"></span><a href="#">
+                                          <p><strong>Is Full:</strong><span  th:text="${location.isFull}"></span><a href="#">
                                             <button type="button" class="btn btn-default" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></a></p>
                                       </div>
@@ -82,7 +84,7 @@
                                   <tr th:each="material : ${materials}" th:unless="${materials} == null">
                                       <td><h3>
                                               <a th:href="'/' + ${username} + '/materials/' + ${material.uid}">
-                                                  <h3 th:text="${material.name}" th:unless="${material == null}"></a>
+                                                  <h3 th:text="${material.name}" th:unless="${material == null}"></h3></a>
                                           </h3></td>
                                       <td th:text="${material.qty}"></td>
                                       <td><a href="#"><button type="button"
@@ -116,7 +118,7 @@
                                   <tr th:each="project : ${projects}" th:unless="${projects} == null">
                                       <td><h3>
                                               <a th:href="'/' + ${username} + '/projects/' + ${project.uid}">
-                                                  <h3 th:text="${project.name}" th:unless="${project == null}"></a>
+                                                  <h3 th:text="${project.name}" th:unless="${project == null}"></h3></a>
                                           </h3></td>
                                       <td th:text="${project.qty}"></td>
                                       <td><a href="#"><button type="button"
@@ -130,6 +132,8 @@
                               </table>
                           </div>
                       </div>
+                  </div>
+                </div>
           </div>
       </section>
 

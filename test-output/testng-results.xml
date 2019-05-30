@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="11" passed="11">
+<testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="205864" started-at="2019-05-30T18:21:58Z" finished-at="2019-05-30T18:25:24Z">
+  <suite name="Default suite" duration-ms="96699" started-at="2019-05-30T20:35:59Z" finished-at="2019-05-30T20:37:35Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="205864" started-at="2019-05-30T18:21:58Z" finished-at="2019-05-30T18:25:24Z">
-      <class name="sjcswank.com.guthub.seleniumTests.NewProjectTests">
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="setup" is-config="true" duration-ms="11392" started-at="2019-05-30T13:21:58Z" finished-at="2019-05-30T13:22:10Z">
+    <test name="Default test" duration-ms="96699" started-at="2019-05-30T20:35:59Z" finished-at="2019-05-30T20:37:35Z">
+      <class name="sjcswank.com.guthub.seleniumTests.NewLocationTests">
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="setup" is-config="true" duration-ms="12610" started-at="2019-05-30T15:35:59Z" finished-at="2019-05-30T15:36:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="cancelTest()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="cancelTest" duration-ms="688" started-at="2019-05-30T13:22:10Z" finished-at="2019-05-30T13:22:10Z">
+        <test-method status="PASS" signature="cancelTest()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="cancelTest" duration-ms="714" started-at="2019-05-30T15:36:11Z" finished-at="2019-05-30T15:36:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cancelTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3737" started-at="2019-05-30T13:22:10Z" finished-at="2019-05-30T13:22:14Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2969" started-at="2019-05-30T15:36:12Z" finished-at="2019-05-30T15:36:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="setup" is-config="true" duration-ms="10718" started-at="2019-05-30T13:22:14Z" finished-at="2019-05-30T13:22:25Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="setup" is-config="true" duration-ms="10710" started-at="2019-05-30T15:36:15Z" finished-at="2019-05-30T15:36:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newProject(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="newProject" duration-ms="1849" started-at="2019-05-30T13:22:25Z" data-provider="newProjectTest" finished-at="2019-05-30T13:22:27Z">
+        <test-method status="PASS" signature="newLocationTest(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="newLocationTest" duration-ms="2138" started-at="2019-05-30T15:36:26Z" data-provider="newLocationTest" finished-at="2019-05-30T15:36:28Z">
           <params>
             <param index="0">
               <value>
@@ -32,27 +32,46 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[3]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[default]]>
+                <![CDATA[true]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- newProject -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3338" started-at="2019-05-30T13:22:27Z" finished-at="2019-05-30T13:22:30Z">
+        </test-method> <!-- newLocationTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3441" started-at="2019-05-30T15:36:28Z" finished-at="2019-05-30T15:36:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="setup" is-config="true" duration-ms="10683" started-at="2019-05-30T13:22:30Z" finished-at="2019-05-30T13:22:41Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="setup" is-config="true" duration-ms="10902" started-at="2019-05-30T15:36:32Z" finished-at="2019-05-30T15:36:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newProject(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="newProject" duration-ms="1721" started-at="2019-05-30T13:22:41Z" data-provider="newProjectTest" finished-at="2019-05-30T13:22:43Z">
+        <test-method status="PASS" signature="newLocationTest(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="newLocationTest" duration-ms="10797" started-at="2019-05-30T15:36:42Z" data-provider="newLocationTest" finished-at="2019-05-30T15:36:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[true]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newLocationTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2519" started-at="2019-05-30T15:36:53Z" finished-at="2019-05-30T15:36:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="setup" is-config="true" duration-ms="11595" started-at="2019-05-30T15:36:56Z" finished-at="2019-05-30T15:37:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="newLocationTest(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="newLocationTest" duration-ms="1327" started-at="2019-05-30T15:37:07Z" data-provider="newLocationTest" finished-at="2019-05-30T15:37:09Z">
           <params>
             <param index="0">
               <value>
@@ -61,143 +80,22 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[3]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Studio]]>
+                <![CDATA[false]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- newProject -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2797" started-at="2019-05-30T13:22:43Z" finished-at="2019-05-30T13:22:45Z">
+        </test-method> <!-- newLocationTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3041" started-at="2019-05-30T15:37:09Z" finished-at="2019-05-30T15:37:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="setup" is-config="true" duration-ms="11224" started-at="2019-05-30T13:22:45Z" finished-at="2019-05-30T13:22:57Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="setup" is-config="true" duration-ms="10821" started-at="2019-05-30T15:37:12Z" finished-at="2019-05-30T15:37:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newProject(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="newProject" duration-ms="1561" started-at="2019-05-30T13:22:57Z" data-provider="newProjectTest" finished-at="2019-05-30T13:22:58Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[valid2]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[3]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Portfolio]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- newProject -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2940" started-at="2019-05-30T13:22:58Z" finished-at="2019-05-30T13:23:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="setup" is-config="true" duration-ms="10787" started-at="2019-05-30T13:23:01Z" finished-at="2019-05-30T13:23:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newProject(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="newProject" duration-ms="1891" started-at="2019-05-30T13:23:12Z" data-provider="newProjectTest" finished-at="2019-05-30T13:23:14Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[valid3]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[3]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[default]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- newProject -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2980" started-at="2019-05-30T13:23:14Z" finished-at="2019-05-30T13:23:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="setup" is-config="true" duration-ms="11044" started-at="2019-05-30T13:23:17Z" finished-at="2019-05-30T13:23:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newProject(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="newProject" duration-ms="1902" started-at="2019-05-30T13:23:28Z" data-provider="newProjectTest" finished-at="2019-05-30T13:23:30Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[valid4]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Studio]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- newProject -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2883" started-at="2019-05-30T13:23:30Z" finished-at="2019-05-30T13:23:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="setup" is-config="true" duration-ms="11199" started-at="2019-05-30T13:23:33Z" finished-at="2019-05-30T13:23:44Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newProject(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="newProject" duration-ms="11356" started-at="2019-05-30T13:23:44Z" data-provider="newProjectTest" finished-at="2019-05-30T13:23:55Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[valid5]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Portfolio]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- newProject -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2296" started-at="2019-05-30T13:23:55Z" finished-at="2019-05-30T13:23:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="setup" is-config="true" duration-ms="11320" started-at="2019-05-30T13:23:57Z" finished-at="2019-05-30T13:24:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newProject(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="newProject" duration-ms="11160" started-at="2019-05-30T13:24:09Z" data-provider="newProjectTest" finished-at="2019-05-30T13:24:20Z">
+        <test-method status="PASS" signature="newLocationTest(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="newLocationTest" duration-ms="10550" started-at="2019-05-30T15:37:23Z" data-provider="newLocationTest" finished-at="2019-05-30T15:37:33Z">
           <params>
             <param index="0">
               <value>
@@ -206,110 +104,18 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[3]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[default]]>
+                <![CDATA[false]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- newProject -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2603" started-at="2019-05-30T13:24:20Z" finished-at="2019-05-30T13:24:22Z">
+        </test-method> <!-- newLocationTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2365" started-at="2019-05-30T15:37:33Z" finished-at="2019-05-30T15:37:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="setup" is-config="true" duration-ms="10275" started-at="2019-05-30T13:24:22Z" finished-at="2019-05-30T13:24:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newProject(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="newProject" duration-ms="11010" started-at="2019-05-30T13:24:33Z" data-provider="newProjectTest" finished-at="2019-05-30T13:24:44Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Studio]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- newProject -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2440" started-at="2019-05-30T13:24:44Z" finished-at="2019-05-30T13:24:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="setup" is-config="true" duration-ms="10335" started-at="2019-05-30T13:24:46Z" finished-at="2019-05-30T13:24:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newProject(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="newProject" duration-ms="925" started-at="2019-05-30T13:24:57Z" data-provider="newProjectTest" finished-at="2019-05-30T13:24:57Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Valid6]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[3]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- newProject -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3264" started-at="2019-05-30T13:24:57Z" finished-at="2019-05-30T13:25:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="setup" is-config="true" duration-ms="10455" started-at="2019-05-30T13:25:01Z" finished-at="2019-05-30T13:25:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newProject(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="newProject" duration-ms="10560" started-at="2019-05-30T13:25:11Z" data-provider="newProjectTest" finished-at="2019-05-30T13:25:22Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- newProject -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewProjectTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2319" started-at="2019-05-30T13:25:22Z" finished-at="2019-05-30T13:25:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- sjcswank.com.guthub.seleniumTests.NewProjectTests -->
+      </class> <!-- sjcswank.com.guthub.seleniumTests.NewLocationTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
