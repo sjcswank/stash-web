@@ -30,8 +30,11 @@
 		                <!-- Item name text input -->
 		                <section th:replace="newItem :: itemNameInput"></section>
 		
-		                <!-- Quantity dropdown-menu -->
-		                <section th:replace="newItem :: itemQtyInput"></section>
+				        <div class="form-group">
+		                    <div class="input-group">
+		                      <input type="number" class="form-control" aria-label="quantity" placeholder="Quantity" name="qty" />
+		                    </div>
+		                </div>
 		
 		                <!-- Location dropdown-menu -->
 		                <section th:replace="newItem :: itemLocationInput"></section>
@@ -44,6 +47,7 @@
 					    </div>
 		            </form>
 	            </div>
+	            <strong id="error" th:text="${error}"></strong>
             </div>
         </div>
     </div>

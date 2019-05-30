@@ -113,28 +113,27 @@ public class NewItemController extends AbstractController {
 		
 		@RequestMapping(value = "{username}/newproject", method = RequestMethod.POST)
 		public String newProject(HttpServletRequest request, Model model, @PathVariable String username, RedirectAttributes redirectAttrs) {
-			
-			String error = null;
-			//get params	
 
+			//get params	
 			String itemName = request.getParameter("itemName");
 			User owner = this.getUserFromSession(request.getSession());
 			String save = request.getParameter("save");
-			
-			//post has title and body
-			if (itemName == null || itemName == "" ){
-				error = "A name is required!";
-				model.addAttribute("error", error);
-				return "newProject";
-			}
-			
 			//int locationId = Integer.parseInt(request.getParameter("location"));
 			Location location = LocationDao.findByUid(1);
+			String quantity = request.getParameter("qty");
 			
-			int qty = 0;
-			if (request.getParameter("qty") != null && request.getParameter("qty") != ""){
-				qty = Integer.parseInt(request.getParameter("qty"));
+			if (itemName==null || itemName==""){
+				model.addAttribute("error", "Project Name is Required");
+				return "newProject";
 			}
+			if (quantity==null || quantity=="" || quantity=="0"){
+				model.addAttribute("error", "Quantity is Required");
+				return "newProject";
+			}
+			//location error
+			
+			int qty = Integer.parseInt(quantity);
+			
 			Project project = new Project();
 			project.setOwner(owner);
 			project.setName(itemName);
@@ -184,9 +183,8 @@ public class NewItemController extends AbstractController {
 			String isFull = request.getParameter("isFull");
 			String save = request.getParameter("save");
 			
-			//post has title and body
 			if (itemName == null || itemName == "" ){
-				error = "A name is required!";
+				error = "Location Name is Required!";
 				model.addAttribute("error", error);
 				return "newLocation";
 			}

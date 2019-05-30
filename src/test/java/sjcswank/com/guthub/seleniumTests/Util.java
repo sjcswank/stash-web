@@ -54,6 +54,10 @@ public class Util {
 	public static final String EXPECTED_NEW_MAT_NAME_ERROR = "Item Name is Required";
 	public static final String EXPECTED_NEW_MAT_QTY_ERROR = "Quantity is Required";
 	
+	//New Project Page
+	public static final String EXPECTED_NEW_PROJ_NAME_ERROR = "Project Name is Required";
+	public static final String EXPECTED_NEW_PROJ_QTY_ERROR = "Quantity is Required";
+	
 	/* You can change the Path of FireFox base on your environment here */
 	public static final String FIREFOX_PATH = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
 
@@ -62,6 +66,7 @@ public class Util {
 	public static final String RECENT_TITLES_FILE_PATH = "src/test/java/testData/recentItemsData.xls"; // DASH TITLES File Path
 	public static final String NEW_ITEM_DROPDOWN_FILE_PATH = "src/test/java/testData/newItemDropdownData.xls"; // DASH DROPDOWN File Path
 	public static final String NEW_MATERIAL_FILE_PATH = "src/test/java/testData/newMaterialData.xls"; //NEW MATERIAL DATA File Path
+	public static final String NEW_PROJECT_FILE_PATH = "src/test/java/testData/newProjectData.xls"; //NEW PROJECT DATA File Path
 	public static final String SHEET_NAME = "Data"; // Sheet name
 	public static final String TABLE_NAME = "testData"; // Name of data table
 

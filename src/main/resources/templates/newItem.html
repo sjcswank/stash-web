@@ -74,7 +74,7 @@
                         Location <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu" name="location" id="location">
-                        <li th:value="${location.uid}" th:each="location : ${locations}" th:text="${location.name}" th:id="${location.name}"></li>
+                        <li th:each="location : ${locations}" th:value="${location.uid}" th:text="${location.name}" th:id="${location.name}"></li>
                       </ul>
                     </div>
                 </div>

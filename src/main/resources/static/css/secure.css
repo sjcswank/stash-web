@@ -157,6 +157,10 @@ body {
 	text-decoration: underline;
 }
 
+#error {
+	color: #fff;
+}
+
 footer{
     background: #666;
     color: #fff;
