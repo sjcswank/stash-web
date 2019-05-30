@@ -15,7 +15,6 @@ import org.testng.annotations.Test;
 
 public class MaterialsTests {
 	private WebDriver driver; // Selenium control driver
-	private String baseUrl; // baseUrl of website
 	
 	@BeforeMethod
 	public void setup() throws Exception {

@@ -1,49 +1,337 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="1" total="9" passed="8">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="46490" started-at="2019-05-28T19:04:39Z" finished-at="2019-05-28T19:05:25Z">
+  <suite name="Default suite" duration-ms="166941" started-at="2019-05-29T21:36:59Z" finished-at="2019-05-29T21:39:46Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="46490" started-at="2019-05-28T19:04:39Z" finished-at="2019-05-28T19:05:25Z">
-      <class name="sjcswank.com.guthub.seleniumTests.LocationsTests">
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.LocationsTests@6c3708b3]" name="setup" is-config="true" duration-ms="11890" started-at="2019-05-28T14:04:39Z" finished-at="2019-05-28T14:04:50Z">
+    <test name="Default test" duration-ms="166941" started-at="2019-05-29T21:36:59Z" finished-at="2019-05-29T21:39:46Z">
+      <class name="sjcswank.com.guthub.seleniumTests.NewMaterialTests">
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="setup" is-config="true" duration-ms="11411" started-at="2019-05-29T16:36:59Z" finished-at="2019-05-29T16:37:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="addMaterialButton()[pri:0, instance:sjcswank.com.guthub.seleniumTests.LocationsTests@6c3708b3]" name="addMaterialButton" duration-ms="224" started-at="2019-05-28T14:04:50Z" finished-at="2019-05-28T14:04:51Z">
+        <test-method status="PASS" signature="cancelTest()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="cancelTest" duration-ms="738" started-at="2019-05-29T16:37:10Z" finished-at="2019-05-29T16:37:11Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addMaterialButton -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.LocationsTests@6c3708b3]" name="tearDown" is-config="true" duration-ms="3634" started-at="2019-05-28T14:04:51Z" finished-at="2019-05-28T14:04:54Z">
+        </test-method> <!-- cancelTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3516" started-at="2019-05-29T16:37:11Z" finished-at="2019-05-29T16:37:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.LocationsTests@6c3708b3]" name="setup" is-config="true" duration-ms="11749" started-at="2019-05-28T14:04:54Z" finished-at="2019-05-28T14:05:06Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="setup" is-config="true" duration-ms="10136" started-at="2019-05-29T16:37:15Z" finished-at="2019-05-29T16:37:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="imgActive()[pri:0, instance:sjcswank.com.guthub.seleniumTests.LocationsTests@6c3708b3]" name="imgActive" duration-ms="408" started-at="2019-05-28T14:05:06Z" finished-at="2019-05-28T14:05:06Z">
+        <test-method status="PASS" signature="newMaterial(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="newMaterial" duration-ms="2308" started-at="2019-05-29T16:37:25Z" data-provider="newMaterialTest" finished-at="2019-05-29T16:37:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[valid0]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[String]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[default]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- imgActive -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.LocationsTests@6c3708b3]" name="tearDown" is-config="true" duration-ms="3276" started-at="2019-05-28T14:05:06Z" finished-at="2019-05-28T14:05:10Z">
+        </test-method> <!-- newMaterial -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2952" started-at="2019-05-29T16:37:27Z" finished-at="2019-05-29T16:37:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.LocationsTests@6c3708b3]" name="setup" is-config="true" duration-ms="11500" started-at="2019-05-28T14:05:10Z" finished-at="2019-05-28T14:05:21Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="setup" is-config="true" duration-ms="9628" started-at="2019-05-29T16:37:30Z" finished-at="2019-05-29T16:37:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="titleDisplayed()[pri:0, instance:sjcswank.com.guthub.seleniumTests.LocationsTests@6c3708b3]" name="titleDisplayed" duration-ms="27" started-at="2019-05-28T14:05:21Z" finished-at="2019-05-28T14:05:21Z">
+        <test-method status="PASS" signature="newMaterial(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="newMaterial" duration-ms="2381" started-at="2019-05-29T16:37:40Z" data-provider="newMaterialTest" finished-at="2019-05-29T16:37:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[valid1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[String]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Studio]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- titleDisplayed -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.LocationsTests@6c3708b3]" name="tearDown" is-config="true" duration-ms="3759" started-at="2019-05-28T14:05:21Z" finished-at="2019-05-28T14:05:25Z">
+        </test-method> <!-- newMaterial -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2919" started-at="2019-05-29T16:37:42Z" finished-at="2019-05-29T16:37:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- sjcswank.com.guthub.seleniumTests.LocationsTests -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="setup" is-config="true" duration-ms="10980" started-at="2019-05-29T16:37:45Z" finished-at="2019-05-29T16:37:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="newMaterial(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="newMaterial" duration-ms="1930" started-at="2019-05-29T16:37:56Z" data-provider="newMaterialTest" finished-at="2019-05-29T16:37:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[valid2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Piece]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Portfolio]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newMaterial -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3033" started-at="2019-05-29T16:37:58Z" finished-at="2019-05-29T16:38:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="setup" is-config="true" duration-ms="11089" started-at="2019-05-29T16:38:01Z" finished-at="2019-05-29T16:38:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="newMaterial(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="newMaterial" duration-ms="2014" started-at="2019-05-29T16:38:12Z" data-provider="newMaterialTest" finished-at="2019-05-29T16:38:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[valid3]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Package]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[default]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newMaterial -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2921" started-at="2019-05-29T16:38:14Z" finished-at="2019-05-29T16:38:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="setup" is-config="true" duration-ms="10581" started-at="2019-05-29T16:38:17Z" finished-at="2019-05-29T16:38:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="newMaterial(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="newMaterial" duration-ms="2151" started-at="2019-05-29T16:38:27Z" data-provider="newMaterialTest" finished-at="2019-05-29T16:38:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[valid4]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Piece]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Studio]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newMaterial -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2486" started-at="2019-05-29T16:38:30Z" finished-at="2019-05-29T16:38:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="setup" is-config="true" duration-ms="10332" started-at="2019-05-29T16:38:32Z" finished-at="2019-05-29T16:38:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="newMaterial(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="newMaterial" duration-ms="11854" started-at="2019-05-29T16:38:42Z" data-provider="newMaterialTest" finished-at="2019-05-29T16:38:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[valid5]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Package]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Portfolio]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newMaterial -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2178" started-at="2019-05-29T16:38:54Z" finished-at="2019-05-29T16:38:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="setup" is-config="true" duration-ms="10855" started-at="2019-05-29T16:38:56Z" finished-at="2019-05-29T16:39:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="newMaterial(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="newMaterial" duration-ms="11265" started-at="2019-05-29T16:39:07Z" data-provider="newMaterialTest" finished-at="2019-05-29T16:39:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[String]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[default]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newMaterial -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2206" started-at="2019-05-29T16:39:19Z" finished-at="2019-05-29T16:39:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="setup" is-config="true" duration-ms="10875" started-at="2019-05-29T16:39:21Z" finished-at="2019-05-29T16:39:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="FAIL" signature="newMaterial(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="newMaterial" duration-ms="11647" started-at="2019-05-29T16:39:32Z" data-provider="newMaterialTest" finished-at="2019-05-29T16:39:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Piece]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Studio]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Item Name is Required] but found [Quantity is Required]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Item Name is Required] but found [Quantity is Required]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:190)
+	at org.testng.Assert.assertEquals(Assert.java:200)
+	at sjcswank.com.guthub.seleniumTests.NewMaterialTests.newMaterial(NewMaterialTests.java:62)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newMaterial -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewMaterialTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2332" started-at="2019-05-29T16:39:43Z" finished-at="2019-05-29T16:39:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- sjcswank.com.guthub.seleniumTests.NewMaterialTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

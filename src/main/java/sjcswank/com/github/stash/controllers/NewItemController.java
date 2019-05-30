@@ -47,28 +47,25 @@ public class NewItemController extends AbstractController {
 		
 		@RequestMapping(value = "{username}/newmaterial", method = RequestMethod.POST)
 		public String newMaterial(HttpServletRequest request, Model model, @PathVariable String username, RedirectAttributes redirectAttrs) {
-			
-			String error = null;
+
 			
 			//get params	
 			String itemName = request.getParameter("itemName");
 			User owner = this.getUserFromSession(request.getSession());
-//			String save = request.getParameter("save");
-			
-			//post has title and body
-//			if (itemName == null || itemName == "" ){
-//				error = "A name is required!";
-//				model.addAttribute("error", error);
-//				return "newMaterial";
-//			}
-			
 //			int locationId = Integer.parseInt(request.getParameter("location"));
 			Location location = LocationDao.findByUid(1);
+			String stringQty = request.getParameter("qty");
 			
-			int qty = 0;
-			if (request.getParameter("qty") != null && request.getParameter("qty") != ""){
-				qty = Integer.parseInt(request.getParameter("qty"));
+			if (itemName==null || itemName==""){
+				model.addAttribute("error", "Item Name is Required");
+				return "newMaterial";
 			}
+			if (stringQty==null || stringQty=="" || stringQty=="0"){
+				model.addAttribute("error", "Quantity is Required");
+				return "newMaterial";
+			}
+			
+			int qty = Integer.parseInt(stringQty);
 			
 			Material material = new Material();
 			material.setOwner(owner);

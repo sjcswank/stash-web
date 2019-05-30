@@ -34,8 +34,8 @@
                         Item Type <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu" name="type">
-                        <li value="material">Material</li>
-                        <li value="project">Project</li>
+                        <li value="material" id="material">Material</li>
+                        <li value="project" id="project">Project</li>
                       </ul>
                     </div>
                 </div>
@@ -53,13 +53,13 @@
                 <div class="form-group">
                     <div class="input-group">
                       <input type="number" class="form-control" aria-label="quantity" placeholder="Quantity" name="qty" />
-                      <div class="input-group-btn">
+                      <div class="input-group-btn" id="qtyType">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         	Type <span class="caret"></span></button>
                         <ul class="dropdown-menu" name="qtyType" id="qtyType">
-                          <li class="dropdown-item" value="string"><a href="#">String</a></li>
-                          <li class="dropdown-item" value="piece"><a href="#">Piece</a></li>
-                          <li class="dropdown-item" value="package"><a href="#">Package</a></li>
+                          <li class="dropdown-item" value="string" id="String"><a href="#">String</a></li>
+                          <li class="dropdown-item" value="piece" id="Piece"><a href="#">Piece</a></li>
+                          <li class="dropdown-item" value="package" id="Package"><a href="#">Package</a></li>
                         </ul>
                       </div>
                     </div>
@@ -69,12 +69,12 @@
                 <!-- Location dropdown-menu -->
                 <section th:fragment="itemLocationInput">
                 <div class="form-group">
-                    <div class="btn-group">
+                    <div class="btn-group" id="location">
                       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Location <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu" name="location" id="location">
-                        <li th:value="${location.uid}" th:each="location : ${locations}" th:text="${location.name}"></li>
+                        <li th:value="${location.uid}" th:each="location : ${locations}" th:text="${location.name}" th:id="${location.name}"></li>
                       </ul>
                     </div>
                 </div>
