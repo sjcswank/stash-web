@@ -5,114 +5,147 @@
 <body>
 
 	<!-- dashboard navbar -->
-	<section th:replace="materials :: materialsNav">
-		
-	</section>
+	<section th:replace="materials :: materialsNav"></section>
 
 	<div id="breadcrumbs">
 		<ol class="breadcrumb">
-			<li class="active"><a th:href="'/' + ${username} + '/materials/'">Materials</a> <span>&gt;</span> 
-			<strong><span th:text="${material.name}"></span></strong></li>
+			<li class="active"><a
+				th:href="'/' + ${username} + '/materials/'">Materials</a> <span>&gt;</span>
+				<strong><span th:text="${material.name}"></span></strong></li>
 		</ol>
 	</div>
 
 
-  <section id="new">
-          <div class="container">
-              <div class="row">
-                  <div class="col-md-12 title">
-                      <div>
-                        <h2 th:text="${material.name}">- <small><a th:href="'/' + ${username} + '/locations/' + ${material.location}"  th:text="${material.location}"></a>
-                            <div class="btn-group sort" role="group" aria-label="Sort">
-                                <a href="#"><button type="button" class="btn btn-default" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-                                </button></a>
-                                <a href="#"><button type="button" class="btn btn-default" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                </button></a>
-                            </div></small></h2>
-                        </div>
-                    </div>
-                </div>
-             </div>
+	<section id="new">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 title">
+					<div>
+						<h2 th:text="${material.name}">
+							- <small><a
+								th:href="'/' + ${username} + '/locations/' + ${material.location}"
+								th:text="${material.location}"></a>
+								<div class="btn-group sort" role="group" aria-label="Sort">
+									<a href="#"><button type="button" class="btn btn-default"
+											aria-label="Left Align">
+											<span class="glyphicon glyphicon-remove-circle"
+												aria-hidden="true"></span>
+										</button></a> <a href="#"><button type="button" class="btn btn-default"
+											aria-label="Left Align">
+											<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+										</button></a>
+								</div></small>
+						</h2>
+					</div>
+				</div>
+			</div>
 
 
-                      <div class="row">
-                          <div class="col-md-7 tableCol">
 
-                              <div class="row">
-                                  <div class="col-md-12">
-                                      <div>
-                                          <h4>Description</h4>
-                                          <!-- <p th:text="${material.description}"></p> -->
-                                          <p>Matherial Description</p>
-                                      </div>
-                                  </div>
-                              </div>
+			<div class="row">
+				<div class="col-md-7 tableCol">
 
-                              <div class="row">
-                                  <div class="col-md-12">
-                                      <div>
-                                          <p><strong>Quatity:</strong><span  th:text="${material.qty}"></span><a href="#">
-                                            <button type="button" class="btn btn-default" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></a></p>
+					<div class="row">
+						<div class="col-md-12">
+							<div>
+								<h4>Description</h4>
+								<!-- <p th:text="${material.description}"></p> -->
+								<p>Matherial Description</p>
+							</div>
+						</div>
+					</div>
 
-                                            <p><strong>Quatity Wanted:</strong>
-                                            <!-- <span  th:text="${material.qtyWanted}"></span> -->
-                                            0
-                                            <a href="#">
-                                              <button type="button" class="btn btn-default" aria-label="Left Align">
-                                              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></a></p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+					<div class="row">
+						<div class="col-md-12">
+							<div>
+								<p>
+									<strong>Quatity:</strong><span th:text="${material.qty}"></span><a
+										href="#">
+										<button type="button" class="btn btn-default"
+											aria-label="Left Align">
+											<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+										</button>
+									</a>
+								</p>
 
-                          <div class="col-md-4 col-md-offset-1 tableCol">
-                              <!-- <img src="${material.image}" /> -->
-                              Image Placeholder
-                          </div>
-                      </div>
+								<p>
+									<strong>Quatity Wanted:</strong>
+									<!-- <span  th:text="${material.qtyWanted}"></span> -->
+									0 <a href="#">
+										<button type="button" class="btn btn-default"
+											aria-label="Left Align">
+											<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+										</button>
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
-                      <div class="row">
-                          <div class="col-md-12 tableCol">
-                              <div class="type-title">
-                                <h2>Related Projects
-                                <div class="btn-group sort" role="group" aria-label="Sort">
-                                  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span></button>
-                                  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sort-by-order" aria-hidden="true"></span></button>
-                                </div>
-                                </h2>
-                              </div>
+				<div class="col-md-4 col-md-offset-1 tableCol">
+					<!-- <img src="${material.image}" /> -->
+					Image Placeholder
+				</div>
+			</div>
 
-                              <table class="table table-hover">
-                                  <tr>
-                                      <th>Project Name</th>
-                                      <th>Qty Needed</th>
-                                      <th>Active</th>
-                                      <th width="110" class="ac">Edit</th>
-                                  </tr>
+			<div class="row">
+				<div class="col-md-12 tableCol">
+					<div class="type-title">
+						<h2>
+							Related Projects
+							<div class="btn-group" role="group" aria-label="addNewl">
+								<button type="button" class="btn btn-default">
+								<a th:href="'/' + ${username} + '/materials/' + ${material.uid} + '/addMaterials'" title="Add Project">
+								<span class="glyphicon glyphicon-plus" aria-hidden="true">
+								</span></a></button>
+							</div>
+							<div class="btn-group sort" role="group" aria-label="Sort">
+								<button type="button" class="btn btn-default" title="Sort Alphabetically">
+									<span class="glyphicon glyphicon-sort-by-alphabet"
+										aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default">
+									<span class="glyphicon glyphicon-sort-by-order" title="Sort by ID"
+										aria-hidden="true"></span>
+								</button>
+							</div>
+							
+						</h2>
+					</div>
 
-                                  <tr th:each="pm : ${projectMaterials}" th:unless="${projectMaterials} == null">
-                                      <td>
-                                              <a th:href="'/' + ${username} + '/projects/' + ${pm.getProject().getUid()}">
-                                                  <h3 th:text="${pm.getProject().getName()}" th:unless="${pm == null}"></h3></a>
-                                          </td>
-                                      <td th:text="${pm.getQty()}"></td>
-                                      <td th:text="${pm.getIsActive()}"></td>
-                                      <td><a href="#"><button type="button"
-                                                  class="btn btn-default" aria-label="Left Align">
-                                                  <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-                                              </button></a> <a href="#"><button type="button" class="btn btn-default"
-                                                  aria-label="Left Align">
-                                                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                              </button></a></td>
-                                  </tr>
-                              </table>
-                          </div>
-                      </div>
+					<table class="table table-hover">
+						<tr>
+							<th>Project Name</th>
+							<th>Qty Needed</th>
+							<th>Active</th>
+							<th width="110" class="ac">Edit</th>
+						</tr>
 
-      </section>
+						<tr th:each="pm : ${projectMaterials}"
+							th:unless="${projectMaterials} == null">
+							<td><a
+								th:href="'/' + ${username} + '/projects/' + ${pm.getProject().getUid()}">
+									<h3 th:text="${pm.getProject().getName()}"
+										th:unless="${pm == null}"></h3>
+							</a></td>
+							<td th:text="${pm.getQty()}"></td>
+							<td th:text="${pm.getIsActive()}"></td>
+							<td><a href="#"><button type="button"
+										class="btn btn-default" aria-label="Left Align">
+										<span class="glyphicon glyphicon-remove-circle"
+											aria-hidden="true"></span>
+									</button></a> <a href="#"><button type="button" class="btn btn-default"
+										aria-label="Left Align">
+										<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+									</button></a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</section>
 
 	<footer th:replace="secureTemplate :: footer"></footer>
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+  <head th:replace="secureTemplate :: dochead">
+  </head>
+
+  <body>
+      <!-- Dashboard Active Navigation -->
+      <section th:replace="materials :: materialsNav">
+      </section>
+
+      <div id="breadcrumbs">
+		<ol class="breadcrumb">
+			<li><a th:href="'/' + ${username} + '/materials/'">Materials</a></li>
+            <li class="active">New Material</li>
+		</ol>
+	</div>
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+
+				<div class="col-md-12 tableCol">
+	                <!-- Box Title -->
+	                <div class="type-title">
+	                    <h2>Add a material to <span th:text="${item.getName()}"></span></h2>
+	                </div>
+	             </div>
+	                </div>
+	                </div>
+	                

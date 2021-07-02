@@ -5,13 +5,13 @@
 
   <body>
       <!-- Dashboard Active Navigation -->
-      <section th:replace="materials :: materialsNav">
+      <section th:replace="projects :: projectsNav">
       </section>
 
       <div id="breadcrumbs">
 		<ol class="breadcrumb">
-			<li><a th:href="'/' + ${username} + '/materials/'">Materials</a></li>
-            <li class="active">New Material</li>
+			<li><a th:href="'/' + ${username} + '/projects/'">Projects</a></li>
+            <li class="active">New Project</li>
 		</ol>
 	</div>
 

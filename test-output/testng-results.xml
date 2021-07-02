@@ -1,121 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="96699" started-at="2019-05-30T20:35:59Z" finished-at="2019-05-30T20:37:35Z">
+  <suite name="Default suite" duration-ms="33481" started-at="2019-06-07T21:08:09Z" finished-at="2019-06-07T21:08:43Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="96699" started-at="2019-05-30T20:35:59Z" finished-at="2019-05-30T20:37:35Z">
-      <class name="sjcswank.com.guthub.seleniumTests.NewLocationTests">
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="setup" is-config="true" duration-ms="12610" started-at="2019-05-30T15:35:59Z" finished-at="2019-05-30T15:36:11Z">
+    <test name="Default test" duration-ms="33481" started-at="2019-06-07T21:08:09Z" finished-at="2019-06-07T21:08:43Z">
+      <class name="sjcswank.com.guthub.seleniumTests.SingleMaterialTests">
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.SingleMaterialTests@6c3708b3]" name="setup" is-config="true" duration-ms="14824" started-at="2019-06-07T16:08:09Z" finished-at="2019-06-07T16:08:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="cancelTest()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="cancelTest" duration-ms="714" started-at="2019-05-30T15:36:11Z" finished-at="2019-05-30T15:36:12Z">
+        <test-method status="PASS" signature="imgActive()[pri:0, instance:sjcswank.com.guthub.seleniumTests.SingleMaterialTests@6c3708b3]" name="imgActive" duration-ms="80" started-at="2019-06-07T16:08:24Z" finished-at="2019-06-07T16:08:24Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- cancelTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2969" started-at="2019-05-30T15:36:12Z" finished-at="2019-05-30T15:36:15Z">
+        </test-method> <!-- imgActive -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.SingleMaterialTests@6c3708b3]" name="tearDown" is-config="true" duration-ms="2456" started-at="2019-06-07T16:08:24Z" finished-at="2019-06-07T16:08:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="setup" is-config="true" duration-ms="10710" started-at="2019-05-30T15:36:15Z" finished-at="2019-05-30T15:36:26Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.SingleMaterialTests@6c3708b3]" name="setup" is-config="true" duration-ms="13641" started-at="2019-06-07T16:08:27Z" finished-at="2019-06-07T16:08:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newLocationTest(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="newLocationTest" duration-ms="2138" started-at="2019-05-30T15:36:26Z" data-provider="newLocationTest" finished-at="2019-05-30T15:36:28Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[valid0]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[true]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="titleDisplayed()[pri:0, instance:sjcswank.com.guthub.seleniumTests.SingleMaterialTests@6c3708b3]" name="titleDisplayed" duration-ms="26" started-at="2019-06-07T16:08:40Z" finished-at="2019-06-07T16:08:40Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- newLocationTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3441" started-at="2019-05-30T15:36:28Z" finished-at="2019-05-30T15:36:32Z">
+        </test-method> <!-- titleDisplayed -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.SingleMaterialTests@6c3708b3]" name="tearDown" is-config="true" duration-ms="2431" started-at="2019-06-07T16:08:40Z" finished-at="2019-06-07T16:08:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="setup" is-config="true" duration-ms="10902" started-at="2019-05-30T15:36:32Z" finished-at="2019-05-30T15:36:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newLocationTest(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="newLocationTest" duration-ms="10797" started-at="2019-05-30T15:36:42Z" data-provider="newLocationTest" finished-at="2019-05-30T15:36:53Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[true]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- newLocationTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2519" started-at="2019-05-30T15:36:53Z" finished-at="2019-05-30T15:36:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="setup" is-config="true" duration-ms="11595" started-at="2019-05-30T15:36:56Z" finished-at="2019-05-30T15:37:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newLocationTest(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="newLocationTest" duration-ms="1327" started-at="2019-05-30T15:37:07Z" data-provider="newLocationTest" finished-at="2019-05-30T15:37:09Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[valid1]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[false]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- newLocationTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="tearDown" is-config="true" duration-ms="3041" started-at="2019-05-30T15:37:09Z" finished-at="2019-05-30T15:37:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="setup" is-config="true" duration-ms="10821" started-at="2019-05-30T15:37:12Z" finished-at="2019-05-30T15:37:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="newLocationTest(java.lang.String, java.lang.String)[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="newLocationTest" duration-ms="10550" started-at="2019-05-30T15:37:23Z" data-provider="newLocationTest" finished-at="2019-05-30T15:37:33Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[false]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- newLocationTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sjcswank.com.guthub.seleniumTests.NewLocationTests@185d8b6]" name="tearDown" is-config="true" duration-ms="2365" started-at="2019-05-30T15:37:33Z" finished-at="2019-05-30T15:37:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- sjcswank.com.guthub.seleniumTests.NewLocationTests -->
+      </class> <!-- sjcswank.com.guthub.seleniumTests.SingleMaterialTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
